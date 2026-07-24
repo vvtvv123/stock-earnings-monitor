@@ -1,28 +1,13 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 from typing import Any
 
-from pydantic import BaseModel, Field
 
-
-class Criterion(BaseModel):
-    name: str
-    enabled: bool = True
-    min_earnings_surprise_pct: float = Field(default=5.0, ge=-100.0, le=100.0)
-    min_revenue_surprise_pct: float = Field(default=1.0, ge=-100.0, le=100.0)
-    min_roe_pct: float | None = None
-
-
-class ScoredSnapshot(BaseModel):
-    ticker: str
-    alert: bool
-    criteria: dict[str, bool]
-    eps_actual: float | None
-    eps_estimate: float | None
-    revenue_actual: float | None
-    revenue_estimate: float | None
+DEFAULT_MIN_EARNINGS_SURPRISE_PCT = 5.0
+DEFAULT_MIN_REVENUE_SURPRISE_PCT = 1.0
 
 
 def _pct_delta(actual: float | None, estimate: float | None) -> float | None:
@@ -30,22 +15,30 @@ def _pct_delta(actual: float | None, estimate: float | None) -> float | None:
         return None
 
 
-def score_snapshot(snapshot: dict[str, Any], criteria: Criterion) -> ScoredSnapshot:
+def _is_within_bounds(value: float, min_val: float, max_val: float) -> bool:
+    return min_val <= value <= max_val
+
+
+def score_snapshot(
+    snapshot: dict[str, Any],
+    min_earnings_surprise_pct: float = DEFAULT_MIN_EARNINGS_SURPRISE_PCT,
+    min_revenue_surprise_pct: float = DEFAULT_MIN_REVENUE_SURPRISE_PCT,
+) -> dict[str, Any]:
     checks: dict[str, bool] = {}
     eps_surprise = _pct_delta(snapshot.get("eps_actual"), snapshot.get("eps_estimate"))
     rev_surprise = _pct_delta(snapshot.get("revenue_actual"), snapshot.get("revenue_estimate"))
-    checks["eps_surpassed_estimate"] = eps_surprise is not None and eps_surprise >= criteria.min_earnings_surprise_pct
-    checks["revenue_grew"] = rev_surprise is not None and rev_surprise >= criteria.min_revenue_surprise_pct
-    checks["passed_all_enabled_criteria"] = all(v for k, v in checks.items() if criteria.enabled) if any(v for v in checks.values()) else False
-    return ScoredSnapshot(
-        ticker=str(snapshot.get("ticker")),
-        alert=checks["passed_all_enabled_criteria"],
-        criteria=checks,
-        eps_actual=snapshot.get("eps_actual"),
-        eps_estimate=snapshot.get("eps_estimate"),
-        revenue_actual=snapshot.get("revenue_actual"),
-        revenue_estimate=snapshot.get("revenue_estimate"),
-    )
+    checks["eps_surpassed_estimate"] = eps_surprise is not None and eps_surprise >= min_earnings_surprise_pct
+    checks["revenue_grew"] = rev_surprise is not None and rev_surprise >= min_revenue_surprise_pct
+    checks["passed_all_enabled_criteria"] = all(v for v in checks.values()) if any(checks.values()) else False
+    return {
+        "ticker": str(snapshot.get("ticker")),
+        "alert": checks["passed_all_enabled_criteria"],
+        "criteria": checks,
+        "eps_actual": snapshot.get("eps_actual"),
+        "eps_estimate": snapshot.get("eps_estimate"),
+        "revenue_actual": snapshot.get("revenue_actual"),
+        "revenue_estimate": snapshot.get("revenue_estimate"),
+    }
 
 
 def load_latest_snapshots(path: str = "data/earnings_history.jsonl") -> list[dict[str, Any]]:
@@ -58,7 +51,7 @@ def load_latest_snapshots(path: str = "data/earnings_history.jsonl") -> list[dic
         if not line:
             continue
         try:
-            obj = __import__("json").loads(line)
+            obj = json.loads(line)
         except Exception:
             continue
         ticker = str(obj.get("ticker"))
@@ -66,16 +59,15 @@ def load_latest_snapshots(path: str = "data/earnings_history.jsonl") -> list[dic
     return list(latest.values())
 
 
-def emit_alerts(output_path: str = "data/alerts.jsonl") -> list[ScoredSnapshot]:
-    criteria = Criterion()
+def emit_alerts(output_path: str = "data/alerts.jsonl") -> list[dict[str, Any]]:
     snapshots = load_latest_snapshots()
-    scored = [score_snapshot(s, criteria) for s in snapshots]
-    alerts = [s for s in scored if s.alert]
+    scored = [score_snapshot(s) for s in snapshots]
+    alerts = [s for s in scored if s["alert"]]
     dest = Path(output_path)
     dest.parent.mkdir(parents=True, exist_ok=True)
     with dest.open("a", encoding="utf-8") as f:
         for item in alerts:
-            f.write(item.model_dump_json() + "\n")
+            f.write(json.dumps(item, ensure_ascii=False) + "\n")
     print(f"scorer: wrote {len(alerts)} alerts to {dest}")
     return alerts
 
