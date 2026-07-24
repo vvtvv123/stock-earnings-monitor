@@ -54,6 +54,8 @@ def load_latest_snapshots(path: str = "data/earnings_history.jsonl") -> list[dic
             obj = json.loads(line)
         except Exception:
             continue
+        if not isinstance(obj, dict):
+            continue
         ticker = str(obj.get("ticker"))
         latest[ticker] = obj
     return list(latest.values())
