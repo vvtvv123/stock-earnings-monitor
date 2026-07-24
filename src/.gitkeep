@@ -1,0 +1,3 @@
+# Source stub files for Hermes Agent to implement.
+# Do not create a new framework/API here.
+# Edit src/watcher.py, src/fetcher.py, src/scorer.py, src/alert_whatsapp.py.

@@ -1,0 +1,18 @@
+market:
+  watchlists:
+    nasdaq: watchlists/nasdaq_tickers.json
+    sp500: watchlists/sp500_tickers.json
+  max_tickers: 500
+  min_market_cap_billion: 1
+
+fetcher:
+  lookback_days: 1
+  save_path: data/earnings_history.jsonl
+
+scorer:
+  save_path: data/alerts.jsonl
+
+whatsapp:
+  platform: whatsapp
+  chat_target: "<set_chat_id_or_label>"
+  min_confidence: medium
