@@ -7,3 +7,6 @@ __pycache__/
 .env
 data/*
 !data/.gitkeep
+!data/earnings_history.jsonl
+!data/upcoming_earnings.jsonl
+!data/alerts.jsonl
