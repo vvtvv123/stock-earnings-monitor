@@ -110,7 +110,7 @@ def fetch_nasdaq_earnings_for_tickers(tickers: list[str], lookahead_days: int = 
         url = "https://api.nasdaq.com/api/calendar/earnings"
         try:
             payload = _json_get(url, params={"date": datestr})
-            data = (((payload or {}).get("data") or {}).get("calendar") or {}).get("rows") or []
+            data = (((payload or {}).get("data") or {}).get("rows") or [])
         except Exception:
             data = []
 
@@ -135,7 +135,12 @@ def fetch_ticker_earnings(ticker: str) -> EarningsSnapshot:
 
 
 def fetch_earnings_for_tickers(tickers: list[str]) -> dict[str, dict[str, Any]]:
-    return {t: fetch_ticker_earnings(t).to_dict() for t in tickers}
+    by_ticker = fetch_nasdaq_earnings_for_tickers(tickers, lookahead_days=60)
+    out: dict[str, dict[str, Any]] = {}
+    for t in tickers:
+        meta = by_ticker.get(t) or {}
+        out[t] = meta
+    return out
 
 
 def save_earnings_snapshots(snapshots: list[EarningsSnapshot], path: Path | None = None) -> Path:

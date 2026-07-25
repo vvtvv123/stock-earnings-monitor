@@ -3,9 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
-from typing import Iterable
 
-from fetcher import fetch_earnings_for_tickers
 from logging_utils import log_event
 
 
@@ -15,9 +13,15 @@ def load_tickers(nasdaq_path: Path, sp500_path: Path) -> dict:
         if not ticket_path.exists():
             continue
         try:
-            payload = json.loads(ticket_path.read_text())
+            payload = json.loads(ticket_path.read_text(encoding="utf-8"))
+            tickers = []
             if isinstance(payload, list):
-                data[market_name] = [str(x).strip() for x in payload if str(x).strip()]
+                for x in payload:
+                    if isinstance(x, dict):
+                        tickers.append(str(x.get("ticker", "")).strip())
+                    else:
+                        tickers.append(str(x).strip())
+                data[market_name] = [t for t in tickers if t]
             elif isinstance(payload, dict) and "tickers" in payload:
                 data[market_name] = [str(x).strip() for x in payload["tickers"] if str(x).strip()]
         except Exception as exc:
@@ -27,22 +31,30 @@ def load_tickers(nasdaq_path: Path, sp500_path: Path) -> dict:
     return data
 
 
-def find_earliest_upcoming(tickers: Iterable[str]) -> tuple[str | None, dict | None]:
-    tickers = list(tickers)
-    if not tickers:
-        return None, None
-    earnings = fetch_earnings_for_tickers(tickers)
-    candidates = []
-    for ticker, meta in earnings.items():
-        if not meta:
+def find_earliest_upcoming_from_watchlist(nasdaq_path: Path, sp500_path: Path, limit: int | None = None) -> tuple[str | None, str | None]:
+    rows = []
+    for path in (nasdaq_path, sp500_path):
+        if not path.exists():
             continue
-        next_ts = meta.get("next_earnings_ts")
-        if next_ts:
-            candidates.append((next_ts, ticker, meta))
-    if not candidates:
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if not isinstance(payload, list):
+                continue
+            for item in payload:
+                if not isinstance(item, dict):
+                    continue
+                ticker = str(item.get("ticker", "")).strip()
+                next_ts = item.get("next_earnings_ts")
+                if ticker and next_ts:
+                    rows.append((next_ts, ticker))
+        except Exception:
+            continue
+    if not rows:
         return None, None
-    candidates.sort(key=lambda x: x[0])
-    return candidates[0][1], candidates[0][2]
+    rows.sort()
+    ticker = rows[0][1]
+    next_ts = rows[0][0]
+    return ticker, next_ts
 
 
 def cmd_once(args: argparse.Namespace) -> int:
@@ -50,12 +62,11 @@ def cmd_once(args: argparse.Namespace) -> int:
     sp500_path = Path("watchlists/sp500_tickers.json")
     data = load_tickers(nasdaq_path, sp500_path)
     all_tickers = data.get("nasdaq", []) + data.get("sp500", [])
-    all_tickers = sorted(set(all_tickers))[:getattr(args, "max_tickers", 500)]
+    all_tickers = sorted(set(all_tickers))
     print(f"watcher: loaded {len(all_tickers)} tickers")
-    log_event("watcher_once_start", max_tickers=getattr(args, "max_tickers", 500), loaded=len(all_tickers))
+    log_event("watcher_once_start", loaded=len(all_tickers))
 
-    earliest_ticker, earliest_meta = find_earliest_upcoming(all_tickers)
-    next_ts = (earliest_meta or {}).get("next_earnings_ts") if earliest_meta else None
+    earliest_ticker, next_ts = find_earliest_upcoming_from_watchlist(nasdaq_path, sp500_path)
     print(f"watcher: earliest upcoming ticker={earliest_ticker} next_earnings_ts={next_ts}")
     log_event("watcher_once_done", earliest_ticker=earliest_ticker, earliest_next_earnings_ts=next_ts)
     return 0
@@ -64,7 +75,6 @@ def cmd_once(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="stock earnings watcher")
     parser.add_argument("--once", action="store_true", help="run one check and exit")
-    parser.add_argument("--max-tickers", type=int, default=500, help="max tickers to evaluate")
     parser.add_argument("--earliest", action="store_true", help="print only the single earliest upcoming ticker")
     return parser
 
