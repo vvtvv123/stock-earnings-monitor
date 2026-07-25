@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 import urllib.request
 from datetime import datetime, timedelta
@@ -13,6 +14,12 @@ WATCHLIST_PATHS = [
     "watchlists/nasdaq_tickers.json",
     "watchlists/sp500_tickers.json",
 ]
+
+DATA_DIR = Path("data")
+EARNINGS_HISTORY = DATA_DIR / "earnings_history.jsonl"
+UPCOMING_EARNINGS = DATA_DIR / "upcoming_earnings.jsonl"
+ALERTS_PATH = DATA_DIR / "alerts.jsonl"
+EDGAR_INDEX_PATH = DATA_DIR / "edgar_last_fetch.json"
 
 
 class EarningsSnapshot:
@@ -129,8 +136,8 @@ def fetch_earnings_for_tickers(tickers: list[str]) -> dict[str, dict[str, Any]]:
     return {t: fetch_ticker_earnings(t).to_dict() for t in tickers}
 
 
-def save_earnings_snapshots(snapshots: list[EarningsSnapshot], path: str) -> Path:
-    dest = Path(path)
+def save_earnings_snapshots(snapshots: list[EarningsSnapshot], path: Path | None = None) -> Path:
+    dest = path or EARNINGS_HISTORY
     dest.parent.mkdir(parents=True, exist_ok=True)
     with dest.open("a", encoding="utf-8") as f:
         for snap in snapshots:
@@ -207,12 +214,103 @@ def populate_watchlists() -> int:
     return total_updated
 
 
+def _load_edgar_index() -> dict[str, str]:
+    if EDGAR_INDEX_PATH.exists():
+        try:
+            return json.loads(EDGAR_INDEX_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+    return {}
+
+
+def _save_edgar_index(index: dict[str, str]) -> None:
+    EDGAR_INDEX_PATH.parent.mkdir(parents=True, exist_ok=True)
+    EDGAR_INDEX_PATH.write_text(json.dumps(index, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def _edgar_company_facts(cik: str) -> dict[str, Any]:
+    url = f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik.zfill(10)}.json"
+    req = urllib.request.Request(
+        url,
+        headers={
+            "user-agent": "stock-earnings-monitor contact@example.com",
+            "accept": "application/json",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return json.loads(r.read().decode("utf-8", errors="ignore"))
+
+
+def _edgar_facts_to_snapshot(ticker: str, facts: dict[str, Any]) -> EarningsSnapshot:
+    snap = EarningsSnapshot(ticker)
+    try:
+        us_gaap = facts.get("facts", {}).get("us-gaap", {})
+        revenues = us_gaap.get("Revenues", {})
+        eps = us_gaap.get("EarningsPerShareDiluted", {})
+        units_rev = revenues.get("units", {}).get("USD", []) if isinstance(revenues, dict) else []
+        units_eps = eps.get("units", {}).get("USD/shares", []) if isinstance(eps, dict) else []
+        if units_rev:
+            latest_revenue = sorted(units_rev, key=lambda x: x.get("end", ""))[-1]
+            snap.revenue_actual = _as_number(latest_revenue.get("val"))
+        if units_eps:
+            latest_eps = sorted(units_eps, key=lambda x: x.get("end", ""))[-1]
+            snap.eps_actual = _as_number(latest_eps.get("val"))
+    except Exception:
+        pass
+    return snap
+
+
+def ingest_new_reports() -> int:
+    items = []
+    for rel in WATCHLIST_PATHS:
+        items.extend(load_watchlist(Path(rel)))
+    tickers = sorted({str(it.get("ticker", "")).strip() for it in items if it.get("ticker")})
+    print(f"fetcher: ingesting new reports for {len(tickers)} tickers")
+    prior_index = _load_edgar_index()
+    new_index = dict(prior_index)
+    ingested = 0
+    for ticker in tickers:
+        try:
+            cik = None
+            if ticker in prior_index and prior_index[ticker]:
+                cik = prior_index[ticker]
+            else:
+                # Use cached company tickers mapping from SEC if available
+                cik_tickers = DATA_DIR / "cik_tickers.json"
+                mapping: dict[str, str] = {}
+                if cik_tickers.exists():
+                    try:
+                        mapping = json.loads(cik_tickers.read_text(encoding="utf-8"))
+                    except Exception:
+                        mapping = {}
+                cik = mapping.get(ticker.upper())
+                if not cik:
+                    # quick lookup from SEC ticker dataset if present later
+                    cik = None
+                if cik:
+                    new_index[ticker] = cik
+            snap = EarningsSnapshot(ticker)
+            if cik:
+                facts = _edgar_company_facts(cik)
+                snap = _edgar_facts_to_snapshot(ticker, facts)
+            save_earnings_snapshots([snap])
+            ingested += 1
+        except Exception as exc:
+            print(f"fetcher: ingest failed for {ticker}: {exc}")
+    _save_edgar_index(new_index)
+    print(f"fetcher: ingested {ingested}/{len(tickers)} snapshots")
+    return ingested
+
+
 def cmd_fetch(args: argparse.Namespace) -> int:
     if args.backfill:
         return backfill_watchlists_sample()
 
     if args.populate:
         return populate_watchlists()
+
+    if args.ingest:
+        return ingest_new_reports()
 
     tickers = []
     for rel in WATCHLIST_PATHS:
@@ -228,9 +326,8 @@ def cmd_fetch(args: argparse.Namespace) -> int:
         snap.eps_estimate = meta.get("eps_estimate")
         snap.revenue_actual = meta.get("revenue_actual")
         snap.revenue_estimate = meta.get("revenue_estimate")
-    save_path = args.output or "data/earnings_history.jsonl"
-    dest = save_earnings_snapshots(snapshots, save_path)
-    print(f"fetcher: saved {len(snapshots)} snapshots to {dest}")
+    save_earnings_snapshots(snapshots)
+    print(f"fetcher: saved {len(snapshots)} snapshots")
     return 0
 
 
@@ -239,13 +336,14 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("-o", "--output")
     parser.add_argument("--populate", action="store_true", help="update next_earnings_ts from NASDAQ calendar")
     parser.add_argument("--backfill", action="store_true", help="fill empty next_earnings_ts with sample dates for testing")
+    parser.add_argument("--ingest", action="store_true", help="ingest latest available actuals from SEC EDGAR")
     return parser
 
 
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
-    if not args.populate and not args.backfill and not args.output:
+    if not args.populate and not args.backfill and not args.ingest and not args.output:
         parser.print_help()
         return 0
     return cmd_fetch(args)
