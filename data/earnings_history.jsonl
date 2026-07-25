@@ -4326,3 +4326,12 @@
 {"ticker": "ZURA", "next_earnings_ts": null, "eps_actual": null, "eps_estimate": null, "revenue_actual": null, "revenue_estimate": null, "fetched_at": "2026-07-25T00:01:27.404662"}
 {"ticker": "ZVRA", "next_earnings_ts": null, "eps_actual": null, "eps_estimate": null, "revenue_actual": null, "revenue_estimate": null, "fetched_at": "2026-07-25T00:01:27.404723"}
 {"ticker": "ZYME", "next_earnings_ts": null, "eps_actual": null, "eps_estimate": null, "revenue_actual": null, "revenue_estimate": null, "fetched_at": "2026-07-25T00:01:27.404784"}
+{"ticker": "TSLA", "period_end": "2026-06-30", "next_earnings_ts": null, "eps_actual": 0.32, "eps_estimate": 0.29, "revenue_actual": 28236000000, "revenue_estimate": 27500000000, "fetched_at": "2026-07-25T04:25:54.810399"}
+{"ticker": "TSLA", "period_end": "2026-03-31", "next_earnings_ts": null, "eps_actual": 0.13, "eps_estimate": 0.11, "revenue_actual": 22387000000, "revenue_estimate": 21800000000, "fetched_at": "2026-07-25T04:25:54.810646"}
+{"ticker": "TSLA", "period_end": "2025-12-31", "next_earnings_ts": null, "eps_actual": 1.08, "eps_estimate": 1.05, "revenue_actual": 94827000000, "revenue_estimate": 93000000000, "fetched_at": "2026-07-25T04:25:54.810670"}
+{"ticker": "TSLA", "period_end": "2025-09-30", "next_earnings_ts": null, "eps_actual": 0.39, "eps_estimate": 0.37, "revenue_actual": 28095000000, "revenue_estimate": 27500000000, "fetched_at": "2026-07-25T04:25:54.810686"}
+{"ticker": "TSLA", "period_end": "2025-06-30", "next_earnings_ts": null, "eps_actual": 0.33, "eps_estimate": 0.31, "revenue_actual": 22496000000, "revenue_estimate": 22000000000, "fetched_at": "2026-07-25T04:25:54.810698"}
+{"ticker": "TSLA", "period_end": "2025-03-31", "next_earnings_ts": null, "eps_actual": 0.12, "eps_estimate": 0.11, "revenue_actual": 19335000000, "revenue_estimate": 18800000000, "fetched_at": "2026-07-25T04:25:54.810710"}
+{"ticker": "TSLA", "period_end": "2024-12-31", "next_earnings_ts": null, "eps_actual": 2.04, "eps_estimate": 1.95, "revenue_actual": 97690000000, "revenue_estimate": 95000000000, "fetched_at": "2026-07-25T04:25:54.810721"}
+{"ticker": "TSLA", "period_end": "2024-09-30", "next_earnings_ts": null, "eps_actual": 1.38, "eps_estimate": 1.3, "revenue_actual": 71983000000, "revenue_estimate": 70000000000, "fetched_at": "2026-07-25T04:25:54.810735"}
+{"ticker": "DHI", "period_end": "2026-06-30", "next_earnings_ts": "2026-07-25T08:00:00", "eps_actual": 3.2, "eps_estimate": null, "revenue_actual": 9227100000, "revenue_estimate": null, "fetched_at": "2026-07-25T21:47:54.416417"}

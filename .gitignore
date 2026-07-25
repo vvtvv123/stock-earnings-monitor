@@ -10,3 +10,5 @@ data/*
 !data/earnings_history.jsonl
 !data/upcoming_earnings.jsonl
 !data/alerts.jsonl
+logs/*
+!logs/.gitkeep

@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 from pathlib import Path
 from typing import Any
+
+from logging_utils import log_event
 
 
 def format_alert_message(alert: dict[str, Any]) -> str:
@@ -37,33 +40,38 @@ def load_alerts(path: str = "data/alerts.jsonl") -> list[dict[str, Any]]:
     return alerts
 
 
-def send_whatsapp_message(message: str) -> None:
+def send_telegram_message(chat_id: str, message: str) -> None:
     subprocess.run(
-        ["hermes", "send", "--platform", "whatsapp", "--message", message],
+        ["hermes", "send", "telegram", chat_id, message],
         check=False,
     )
 
 
 def cmd_send(args: argparse.Namespace) -> int:
+    chat_id = getattr(args, "chat_id", None) or os.getenv("TELEGRAM_CHAT_ID", "8782198462")
     alerts = load_alerts(args.alerts)
     if not alerts:
         print("alert_whatsapp: no alerts to send")
+        log_event("alert_send_skipped", reason="no alerts", alerts_path=args.alerts)
         return 0
     sent = 0
     for alert in alerts:
         text = format_alert_message(alert)
         try:
-            send_whatsapp_message(text)
+            send_telegram_message(chat_id, text)
             sent += 1
         except Exception as exc:  # pragma: no cover
             print(f"alert_whatsapp: send failed for {alert.get('ticker')}: {exc}")
+            log_event("alert_send_failed", ticker=alert.get("ticker"), error=str(exc))
     print(f"alert_whatsapp: dispatched {sent}/{len(alerts)} messages")
+    log_event("alert_send_done", dispatched=sent, total=len(alerts), alerts_path=args.alerts, chat_id=chat_id)
     return 0
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="send earnings alerts to WhatsApp")
+    parser = argparse.ArgumentParser(description="send earnings alerts to Telegram")
     parser.add_argument("--alerts", default="data/alerts.jsonl")
+    parser.add_argument("--chat-id", default=os.getenv("TELEGRAM_CHAT_ID", "8782198462"))
     return parser
 
 

@@ -5,6 +5,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from logging_utils import log_event
+
 
 DEFAULT_MIN_EARNINGS_SURPRISE_PCT = 5.0
 DEFAULT_MIN_REVENUE_SURPRISE_PCT = 1.0
@@ -71,11 +73,13 @@ def emit_alerts(output_path: str = "data/alerts.jsonl") -> list[dict[str, Any]]:
         for item in alerts:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
     print(f"scorer: wrote {len(alerts)} alerts to {dest}")
+    log_event("scorer_emit_alerts", snapshot_count=len(snapshots), alert_count=len(alerts), output=str(dest))
     return alerts
 
 
 def cmd_score(args: argparse.Namespace) -> int:
-    emit_alerts(args.output)
+    emit_alerts(args.output or "data/alerts.jsonl")
+    log_event("scorer_cmd_score_done", output=args.output or "data/alerts.jsonl")
     return 0
 
 

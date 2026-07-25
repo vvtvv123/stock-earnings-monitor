@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Iterable
 
 from fetcher import fetch_earnings_for_tickers
+from logging_utils import log_event
 
 
 def load_tickers(nasdaq_path: Path, sp500_path: Path) -> dict:
@@ -21,6 +22,8 @@ def load_tickers(nasdaq_path: Path, sp500_path: Path) -> dict:
                 data[market_name] = [str(x).strip() for x in payload["tickers"] if str(x).strip()]
         except Exception as exc:
             print(f"watcher: failed to load {ticket_path}: {exc}")
+            log_event("watcher_load_failed", path=str(ticket_path), error=str(exc))
+    log_event("watcher_loaded_markets", markets=sorted(data.keys()), counts={k: len(v) for k, v in data.items()})
     return data
 
 
@@ -28,6 +31,7 @@ def next_earnings_tickers(tickers: Iterable[str]) -> list[str]:
     tickers = list(tickers)
     if not tickers:
         return []
+    log_event("watcher_fetch_start", ticker_count=len(tickers))
     earnings = fetch_earnings_for_tickers(tickers)
     upcoming = []
     for ticker, meta in earnings.items():
@@ -37,6 +41,7 @@ def next_earnings_tickers(tickers: Iterable[str]) -> list[str]:
         if next_ts:
             upcoming.append(ticker)
     upcoming.sort()
+    log_event("watcher_fetch_done", ticker_count=len(tickers), upcoming_count=len(upcoming))
     return upcoming
 
 
@@ -47,8 +52,10 @@ def cmd_once(args: argparse.Namespace) -> int:
     all_tickers = data.get("nasdaq", []) + data.get("sp500", [])
     all_tickers = sorted(set(all_tickers))[:getattr(args, "max_tickers", 500)]
     print(f"watcher: loaded {len(all_tickers)} tickers")
+    log_event("watcher_once_start", max_tickers=getattr(args, "max_tickers", 500), loaded=len(all_tickers))
     upcoming = next_earnings_tickers(all_tickers)
     print(f"watcher: {len(upcoming)} upcoming earnings candidates")
+    log_event("watcher_once_done", upcoming_count=len(upcoming), earliest=upcoming[0] if upcoming else None)
     return 0
 
 

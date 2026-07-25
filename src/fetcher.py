@@ -9,6 +9,8 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+from logging_utils import log_event
+
 
 WATCHLIST_PATHS = [
     "watchlists/nasdaq_tickers.json",
@@ -184,6 +186,7 @@ def backfill_watchlists_sample() -> int:
                 updated += 1
         save_watchlist(path, items)
         print(f"fetcher: backfilled {updated}/{len(items)} in {path}")
+        log_event("fetcher_backfill", path=str(path), updated=updated, total=len(items))
         total_updated += updated
     return total_updated
 
@@ -199,6 +202,7 @@ def populate_watchlists() -> int:
             continue
         tickers = sorted({str(it.get("ticker", "")).strip() for it in items if it.get("ticker")})
         print(f"fetcher: populating next_earnings_ts for {len(tickers)} tickers in {path}")
+        log_event("fetcher_populate_start", path=str(path), ticker_count=len(tickers))
         results = fetch_nasdaq_earnings_for_tickers(tickers, lookahead_days=60)
         updated = 0
         for it in items:
@@ -210,6 +214,7 @@ def populate_watchlists() -> int:
                 updated += 1
         save_watchlist(path, items)
         print(f"fetcher: updated {updated}/{len(items)} in {path}")
+        log_event("fetcher_populate_done", path=str(path), updated=updated, total=len(items))
         total_updated += updated
     return total_updated
 
