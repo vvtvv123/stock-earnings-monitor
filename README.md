@@ -1,6 +1,6 @@
 # Stock Earnings Monitor
 
-Monitor US stock earnings for NASDAQ and S&P 500 tickers, store earnings history, and send WhatsApp alerts when positive surprises meet objective criteria.
+Monitor US stock earnings for NASDAQ and S&P 500 tickers, store earnings history, and send Telegram alerts when positive surprises meet objective criteria.
 
 ## What this repo does
 
@@ -14,7 +14,8 @@ No pipeline framework or servers are required.
 - `watchlists/sp500_tickers.json` — S&P 500 watchlist with `ticker` and `next_earnings_ts`
 - `data/earnings_history.jsonl` — append-only earnings records
 - `data/upcoming_earnings.jsonl` — upcoming earnings cache
-- `data/alerts.jsonl` — emitted alerts for WhatsApp delivery
+- `data/alerts.jsonl` — emitted alerts for Telegram delivery
+- `logs/run.jsonl` — append-only operational log
 
 ## Data sources
 
@@ -24,7 +25,7 @@ No pipeline framework or servers are required.
 
 ### Actual earnings numbers
 - Primary: SEC EDGAR filings via `data.sec.gov/api/xbrl/companyfacts`
-- Secondary: NASDAQ calendar actuals when available
+- Secondary: NASDAQ earnings calendar rows (`epsActual`, `revenueActual`, `epsEstimate`, `revenueEstimate`) when available
 - Existing helper: `python3 src/fetcher.py --ingest`
 
 ## Setup
@@ -45,26 +46,38 @@ python3 src/watcher.py --once
 # 2. Refresh next_earnings_ts from NASDAQ calendar (requires environment with outbound HTTPS)
 python3 src/fetcher.py --populate
 
-# 3. Ingest latest available actuals from SEC EDGAR
-python3 src/fetcher.py --ingest
+# 3. Backfill missing next_earnings_ts for one ticker
+python3 src/fetcher.py --backfill --tickers TSLA
 
-# 4. Score latest earnings and write alerts
+# 4. Ingest latest available actuals from SEC EDGAR for one ticker
+python3 src/fetcher.py --ingest --tickers TSLA
+
+# 5. Score latest earnings and write alerts
 python3 src/scorer.py --emit-alerts
 
-# 5. Send WhatsApp alerts
-python3 src/alert_whatsapp.py
+# 6. Send Telegram alerts
+python3 src/alert_telegram.py
 ```
 
-## Watchlist management
+## Watchlist / single-ticker work
 
 Watchlists are already populated.
-If `next_earnings_ts` is missing, populate it with realistic sample dates for testing:
+For targeted updates, limit operations to one ticker:
 
 ```bash
-python3 src/fetcher.py --backfill
+python3 src/fetcher.py --backfill --tickers TSLA
+python3 src/fetcher.py --ingest --tickers TSLA
 ```
 
-To refresh from source, update the relevant watcher script in your environment.
+## Watcher modes
+
+```bash
+# show the earliest upcoming ticker from watchlists
+python3 src/watcher.py --once
+
+# show only the single earliest upcoming ticker
+python3 src/watcher.py --earliest
+```
 
 ## Alert criteria
 
@@ -74,10 +87,30 @@ Default alerting criteria in `scorer.py`:
 
 Configure via `config.yaml` or extend `scorer.py` if needed.
 
-## WhatsApp delivery
+## Telegram delivery
 
-`src/alert_whatsapp.py` reads `data/alerts.jsonl` and sends concise callback-free messages.
-Configure target chat/phone in `config.yaml` before running in production.
+`src/alert_telegram.py` reads `data/alerts.jsonl` and sends concise messages.
+Configure target chat ID via `--chat-id` or `TELEGRAM_CHAT_ID` env var.
+
+Example:
+```bash
+python3 src/alert_telegram.py --chat-id 8782198462
+```
+
+## Logs
+
+Operational logs are written to `logs/run.jsonl`.
+
+```bash
+tail -n 50 logs/run.jsonl | python3 -m json.tool --no-ensure-ascii
+```
+
+Key events:
+- `watcher_once_done`
+- `fetcher_backfill`
+- `fetcher_populate_done`
+- `scorer_emit_alerts`
+- `alert_send_done`
 
 ## Requirements
 
@@ -90,7 +123,7 @@ Configure target chat/phone in `config.yaml` before running in production.
 ## Agent rules
 
 - Edits go in `src/*.py` only.
-- Data files live in `watchlists/` and `data/`.
+- Data files live in `watchlists/`, `data/`, and `logs/`.
 - Do not hardcode credentials; use `config.yaml` or environment variables.
-- Prefer executable scripts over notebooks.
+- Prefer single-ticker operations inside the every-minute cron loop.
 - Commit and push data updates with meaningful messages.

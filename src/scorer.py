@@ -63,8 +63,10 @@ def load_latest_snapshots(path: str = "data/earnings_history.jsonl") -> list[dic
     return list(latest.values())
 
 
-def emit_alerts(output_path: str = "data/alerts.jsonl") -> list[dict[str, Any]]:
+def emit_alerts(output_path: str = "data/alerts.jsonl", tickers: set[str] | None = None) -> list[dict[str, Any]]:
     snapshots = load_latest_snapshots()
+    if tickers:
+        snapshots = [s for s in snapshots if s.get("ticker") in tickers]
     scored = [score_snapshot(s) for s in snapshots]
     alerts = [s for s in scored if s["alert"]]
     dest = Path(output_path)
@@ -87,13 +89,22 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="score earnings snapshots")
     parser.add_argument("--output", help="alerts jsonl path")
     parser.add_argument("--emit-alerts", action="store_true", help="emit alerts and exit")
+    parser.add_argument("--tickers", help="comma-separated tickers to score")
     return parser
 
 
 def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
-    return cmd_score(args)
+    if args.emit_alerts:
+        tickers = None
+        if args.tickers:
+            tickers = {x.strip() for x in args.tickers.split(",") if x.strip()}
+        emit_alerts(args.output or "data/alerts.jsonl", tickers=tickers)
+        log_event("scorer_cmd_score_done", output=args.output or "data/alerts.jsonl", tickers=sorted(tickers) if tickers else None)
+        return 0
+    parser.print_help()
+    return 0
 
 
 if __name__ == "__main__":

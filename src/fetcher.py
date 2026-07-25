@@ -170,7 +170,7 @@ def _sample_next_earnings_ts(ticker: str) -> str:
     return base.strftime("%Y-%m-%dT%H:%M:%S")
 
 
-def backfill_watchlists_sample() -> int:
+def backfill_watchlists_for_tickers(selected: list[str] | None = None) -> int:
     total_updated = 0
     for rel in WATCHLIST_PATHS:
         path = Path(rel)
@@ -179,14 +179,20 @@ def backfill_watchlists_sample() -> int:
         items = load_watchlist(path)
         if not items:
             continue
-        updated = 0
+        work = []
         for it in items:
-            if not it.get("next_earnings_ts"):
-                it["next_earnings_ts"] = _sample_next_earnings_ts(str(it.get("ticker")))
-                updated += 1
-        save_watchlist(path, items)
+            t = str(it.get("ticker", "")).strip()
+            if selected and t not in selected:
+                continue
+            if it.get("next_earnings_ts"):
+                continue
+            it["next_earnings_ts"] = _sample_next_earnings_ts(t)
+            work.append(t)
+        if work:
+            save_watchlist(path, items)
+        updated = len(work)
         print(f"fetcher: backfilled {updated}/{len(items)} in {path}")
-        log_event("fetcher_backfill", path=str(path), updated=updated, total=len(items))
+        log_event("fetcher_backfill", path=str(path), updated=updated, total=len(items), selected=sorted(work)[:10])
         total_updated += updated
     return total_updated
 
@@ -308,8 +314,12 @@ def ingest_new_reports() -> int:
 
 
 def cmd_fetch(args: argparse.Namespace) -> int:
+    selected = getattr(args, "tickers", None)
+    if isinstance(selected, str):
+        selected = [x.strip() for x in selected.split(",") if x.strip()] or None
+
     if args.backfill:
-        return backfill_watchlists_sample()
+        return backfill_watchlists_for_tickers(selected)
 
     if args.populate:
         return populate_watchlists()
@@ -342,6 +352,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--populate", action="store_true", help="update next_earnings_ts from NASDAQ calendar")
     parser.add_argument("--backfill", action="store_true", help="fill empty next_earnings_ts with sample dates for testing")
     parser.add_argument("--ingest", action="store_true", help="ingest latest available actuals from SEC EDGAR")
+    parser.add_argument("--tickers", help="comma-separated tickers to limit backfill/ingest")
     return parser
 
 

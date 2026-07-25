@@ -51,7 +51,7 @@ def cmd_send(args: argparse.Namespace) -> int:
     chat_id = getattr(args, "chat_id", None) or os.getenv("TELEGRAM_CHAT_ID", "8782198462")
     alerts = load_alerts(args.alerts)
     if not alerts:
-        print("alert_whatsapp: no alerts to send")
+        print("alert_telegram: no alerts to send")
         log_event("alert_send_skipped", reason="no alerts", alerts_path=args.alerts)
         return 0
     sent = 0
@@ -61,9 +61,9 @@ def cmd_send(args: argparse.Namespace) -> int:
             send_telegram_message(chat_id, text)
             sent += 1
         except Exception as exc:  # pragma: no cover
-            print(f"alert_whatsapp: send failed for {alert.get('ticker')}: {exc}")
+            print(f"alert_telegram: send failed for {alert.get('ticker')}: {exc}")
             log_event("alert_send_failed", ticker=alert.get("ticker"), error=str(exc))
-    print(f"alert_whatsapp: dispatched {sent}/{len(alerts)} messages")
+    print(f"alert_telegram: dispatched {sent}/{len(alerts)} messages")
     log_event("alert_send_done", dispatched=sent, total=len(alerts), alerts_path=args.alerts, chat_id=chat_id)
     return 0
 
