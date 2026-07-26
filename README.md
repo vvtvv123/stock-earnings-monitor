@@ -40,17 +40,17 @@ pip install -r requirements.txt
 ## Run order
 
 ```bash
-# 1. Inspect upcoming earnings from watchlists
-python3 src/watcher.py --once
-
-# 2. Refresh next_earnings_ts from NASDAQ calendar (requires environment with outbound HTTPS)
+# 1. Populate exact report datetimes from NASDAQ calendar
 python3 src/fetcher.py --populate
 
-# 3. Backfill missing next_earnings_ts for one ticker
-python3 src/fetcher.py --backfill --tickers TSLA
+# 2. Build upcoming cache using exact report datetimes
+python3 src/fetcher.py --upcoming
 
-# 4. Ingest latest available actuals from SEC EDGAR for one ticker
-python3 src/fetcher.py --ingest --tickers TSLA
+# 3. Inspect earliest upcoming report target
+python3 src/watcher.py --earliest
+
+# 4. When report time arrives, fetch reported earnings for known due tickers and compare to history
+python3 src/fetcher.py --fetch-reports
 
 # 5. Score latest earnings and write alerts
 python3 src/scorer.py --emit-alerts
@@ -59,23 +59,32 @@ python3 src/scorer.py --emit-alerts
 python3 src/alert_telegram.py
 ```
 
-## Watchlist / single-ticker work
-
-Watchlists are already populated.
-For targeted updates, limit operations to one ticker:
+## Fetcher commands
 
 ```bash
-python3 src/fetcher.py --backfill --tickers TSLA
-python3 src/fetcher.py --ingest --tickers TSLA
+# Populate watchlists with exact next_earnings_ts + earnings_datetime_utc
+python3 src/fetcher.py --populate
+
+# Refresh existing entries with latest calendar datetimes
+python3 src/fetcher.py --refresh --force
+
+# Build exact upcoming earnings cache and show next scheduled run
+python3 src/fetcher.py --upcoming
+
+# Cache next exact report-arrival run target
+python3 src/fetcher.py --schedule
+
+# Fetch live reported earnings due now and compare to history
+python3 src/fetcher.py --fetch-reports --tickers TSLA
 ```
 
 ## Watcher modes
 
 ```bash
-# show the earliest upcoming ticker from watchlists
+# show the earliest upcoming ticker by exact report datetime
 python3 src/watcher.py --once
 
-# show only the single earliest upcoming ticker
+# show only the single earliest upcoming ticker and suggested run time
 python3 src/watcher.py --earliest
 ```
 
