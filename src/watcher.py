@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 
 from logging_utils import log_event
@@ -31,7 +32,20 @@ def load_tickers(nasdaq_path: Path, sp500_path: Path) -> dict:
     return data
 
 
-def find_earliest_upcoming_from_watchlist(nasdaq_path: Path, sp500_path: Path, limit: int | None = None) -> tuple[str | None, str | None]:
+def _parse_report_dt(item: dict) -> datetime | None:
+    dt_str = item.get("earnings_datetime_utc") or item.get("next_earnings_ts")
+    if not dt_str:
+        return None
+    try:
+        dt = datetime.fromisoformat(str(dt_str).replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt
+    except Exception:
+        return None
+
+
+def find_earliest_upcoming_from_watchlist(nasdaq_path: Path, sp500_path: Path) -> tuple[str | None, str | None, str | None]:
     rows = []
     for path in (nasdaq_path, sp500_path):
         if not path.exists():
@@ -44,17 +58,17 @@ def find_earliest_upcoming_from_watchlist(nasdaq_path: Path, sp500_path: Path, l
                 if not isinstance(item, dict):
                     continue
                 ticker = str(item.get("ticker", "")).strip()
-                next_ts = item.get("next_earnings_ts")
-                if ticker and next_ts:
-                    rows.append((next_ts, ticker))
+                dt = _parse_report_dt(item)
+                if ticker and dt:
+                    rows.append((dt.isoformat(), ticker, dt))
         except Exception:
             continue
     if not rows:
-        return None, None
-    rows.sort()
+        return None, None, None
+    rows.sort(key=lambda r: r[2])
     ticker = rows[0][1]
     next_ts = rows[0][0]
-    return ticker, next_ts
+    return ticker, next_ts, next_ts
 
 
 def cmd_once(args: argparse.Namespace) -> int:
@@ -66,7 +80,7 @@ def cmd_once(args: argparse.Namespace) -> int:
     print(f"watcher: loaded {len(all_tickers)} tickers")
     log_event("watcher_once_start", loaded=len(all_tickers))
 
-    earliest_ticker, next_ts = find_earliest_upcoming_from_watchlist(nasdaq_path, sp500_path)
+    earliest_ticker, next_ts, _ = find_earliest_upcoming_from_watchlist(nasdaq_path, sp500_path)
     print(f"watcher: earliest upcoming ticker={earliest_ticker} next_earnings_ts={next_ts}")
     log_event("watcher_once_done", earliest_ticker=earliest_ticker, earliest_next_earnings_ts=next_ts)
     return 0
