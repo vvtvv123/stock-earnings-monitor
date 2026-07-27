@@ -1,32 +1,21 @@
 # Stock Earnings Monitor
 
-Monitor US stock earnings for NASDAQ and S&P 500 tickers, store earnings history, and send Telegram alerts when positive surprises meet objective criteria.
+Monitor US stock earnings by exact report time, fetch live reported data, and score alerts for Telegram delivery.
 
 ## What this repo does
 
 This is a **data-centric** repo maintained by Hermes Agent.
-The agent keeps watchlists and data files up to date, and executes Python scripts directly.
-No pipeline framework or servers are required.
+The agent executes Python scripts directly. No pipeline framework or servers are required.
 
-## Data files
+## Workflow
 
-- `watchlists/nasdaq_tickers.json` — NASDAQ watchlist with `ticker` and `next_earnings_ts`
-- `watchlists/sp500_tickers.json` — S&P 500 watchlist with `ticker` and `next_earnings_ts`
-- `data/earnings_history.jsonl` — append-only earnings records
-- `data/upcoming_earnings.jsonl` — upcoming earnings cache
-- `data/alerts.jsonl` — emitted alerts for Telegram delivery
-- `logs/run.jsonl` — append-only operational log
+For a given date `X` and time `Y`:
 
-## Data sources
-
-### Calendar / next earnings date
-- Primary: NASDAQ public earnings calendar API
-- Existing helper: `python3 src/fetcher.py --populate`
-
-### Actual earnings numbers
-- Primary: SEC EDGAR filings via `data.sec.gov/api/xbrl/companyfacts`
-- Secondary: NASDAQ earnings calendar rows (`epsActual`, `revenueActual`, `epsEstimate`, `revenueEstimate`) when available
-- Existing helper: `python3 src/fetcher.py --ingest`
+1. Fetch the NASDAQ earnings calendar for `X`.
+2. Find tickers reporting at exact time `Y` within `window_minutes`.
+3. Fetch live earnings data for those tickers.
+4. Score them against alert criteria.
+5. Emit alerts for downstream delivery.
 
 ## Setup
 
@@ -37,56 +26,33 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Run order
+## Usage
 
 ```bash
-# 1. Populate exact report datetimes from NASDAQ calendar
-python3 src/fetcher.py --populate
+# Inspect NASDAQ calendar for a date
+python3 src/fetcher.py --calendar --date 2026-07-27
 
-# 2. Build upcoming cache using exact report datetimes
-python3 src/fetcher.py --upcoming
+# Find tickers at exact time and score them
+python3 src/fetcher.py --at --date 2026-07-27 --time 16:00 --window 30
 
-# 3. Inspect earliest upcoming report target
-python3 src/watcher.py --earliest
+# Get earliest upcoming report from calendar
+python3 src/watcher.py --once --lookahead-days 7
 
-# 4. When report time arrives, fetch reported earnings for known due tickers and compare to history
-python3 src/fetcher.py --fetch-reports
-
-# 5. Score latest earnings and write alerts
-python3 src/scorer.py --emit-alerts
-
-# 6. Send Telegram alerts
-python3 src/alert_telegram.py
+# Fetch live data for specific tickers
+python3 src/fetcher.py --tickers AAPL,TSLA
 ```
 
 ## Fetcher commands
 
-```bash
-# Populate watchlists with exact next_earnings_ts + earnings_datetime_utc
-python3 src/fetcher.py --populate
+- `--calendar --date YYYY-MM-DD`: print NASDAQ calendar for a date
+- `--at --date YYYY-MM-DD --time HH:MM [--window N]`: find tickers at exact time and score them
+- `--schedule`: suggest next exact report-arrival run target
+- `--tickers TICKER1,TICKER2`: fetch live data for specific tickers without watchlists
 
-# Refresh existing entries with latest calendar datetimes
-python3 src/fetcher.py --refresh --force
+## Watcher commands
 
-# Build exact upcoming earnings cache and show next scheduled run
-python3 src/fetcher.py --upcoming
-
-# Cache next exact report-arrival run target
-python3 src/fetcher.py --schedule
-
-# Fetch live reported earnings due now and compare to history
-python3 src/fetcher.py --fetch-reports --tickers TSLA
-```
-
-## Watcher modes
-
-```bash
-# show the earliest upcoming ticker by exact report datetime
-python3 src/watcher.py --once
-
-# show only the single earliest upcoming ticker and suggested run time
-python3 src/watcher.py --earliest
-```
+- `--once --lookahead-days N`: scan NASDAQ calendar for next N days and print earliest upcoming ticker
+- `--earliest`: print only the earliest upcoming ticker
 
 ## Alert criteria
 
@@ -114,13 +80,6 @@ Operational logs are written to `logs/run.jsonl`.
 tail -n 50 logs/run.jsonl | python3 -m json.tool --no-ensure-ascii
 ```
 
-Key events:
-- `watcher_once_done`
-- `fetcher_backfill`
-- `fetcher_populate_done`
-- `scorer_emit_alerts`
-- `alert_send_done`
-
 ## Requirements
 
 `requirements.txt`:
@@ -132,7 +91,7 @@ Key events:
 ## Agent rules
 
 - Edits go in `src/*.py` only.
-- Data files live in `watchlists/`, `data/`, and `logs/`.
+- Data files live in `data/` and `logs/`.
 - Do not hardcode credentials; use `config.yaml` or environment variables.
-- Prefer single-ticker operations inside the every-minute cron loop.
+- Prefer exact-time operations in the every-minute cron loop.
 - Commit and push data updates with meaningful messages.

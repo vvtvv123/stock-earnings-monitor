@@ -15,6 +15,7 @@ DEFAULT_MIN_REVENUE_SURPRISE_PCT = 1.0
 def _pct_delta(actual: float | None, estimate: float | None) -> float | None:
     if actual is None or estimate is None or estimate == 0:
         return None
+    return (actual / estimate - 1) * 100
 
 
 def _is_within_bounds(value: float, min_val: float, max_val: float) -> bool:
@@ -63,11 +64,14 @@ def load_latest_snapshots(path: str = "data/earnings_history.jsonl") -> list[dic
     return list(latest.values())
 
 
-def emit_alerts(output_path: str = "data/alerts.jsonl", tickers: set[str] | None = None) -> list[dict[str, Any]]:
-    snapshots = load_latest_snapshots()
+def emit_alerts(output_path: str = "data/alerts.jsonl", tickers: set[str] | None = None, snapshots: list[dict[str, Any]] | None = None,) -> list[dict[str, Any]]:
+    if snapshots is not None:
+        source = snapshots
+    else:
+        source = load_latest_snapshots()
     if tickers:
-        snapshots = [s for s in snapshots if s.get("ticker") in tickers]
-    scored = [score_snapshot(s) for s in snapshots]
+        source = [s for s in source if s.get("ticker") in tickers]
+    scored = [score_snapshot(s) for s in source]
     alerts = [s for s in scored if s["alert"]]
     dest = Path(output_path)
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -75,7 +79,7 @@ def emit_alerts(output_path: str = "data/alerts.jsonl", tickers: set[str] | None
         for item in alerts:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
     print(f"scorer: wrote {len(alerts)} alerts to {dest}")
-    log_event("scorer_emit_alerts", snapshot_count=len(snapshots), alert_count=len(alerts), output=str(dest))
+    log_event("scorer_emit_alerts", snapshot_count=len(source or []), alert_count=len(alerts), output=str(dest))
     return alerts
 
 
