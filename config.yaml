@@ -1,11 +1,15 @@
-fetcher:
-  lookback_days: 1
-  save_path: data/earnings_history.jsonl
+history:
+  path: data/earnings_history.jsonl
+
+alerts:
+  path: data/alerts.jsonl
+
+edgar:
+  cik_map_path: data/cik_tickers.json
 
 scorer:
-  save_path: data/alerts.jsonl
+  min_eps_growth_pct: 5.0
+  min_revenue_growth_pct: 1.0
 
 telegram:
-  platform: telegram
-  chat_target: "<set_chat_id_or_label>"
-  min_confidence: medium
+  chat_id: "8782198462"

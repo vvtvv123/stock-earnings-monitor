@@ -1,21 +1,41 @@
 # Stock Earnings Monitor
 
-Monitor US stock earnings by exact report time, fetch live reported data, and score alerts for Telegram delivery.
+Poll the NASDAQ earnings calendar for reports as they land, score each one's
+EPS and revenue against that same company's own last reported quarter, and
+send a Telegram alert when growth clears the configured threshold.
 
 ## What this repo does
 
 This is a **data-centric** repo maintained by Hermes Agent.
-The agent executes Python scripts directly. No pipeline framework or servers are required.
+The agent executes Python scripts directly. No pipeline framework or servers
+are required.
 
-## Workflow
+## How scoring works
 
-For a given date `X` and time `Y`:
+There are no analyst estimates or watchlists involved. When a ticker's actual
+EPS shows up on the NASDAQ calendar:
 
-1. Fetch the NASDAQ earnings calendar for `X`.
-2. Find tickers reporting at exact time `Y` within `window_minutes`.
-3. Fetch live earnings data for those tickers.
-4. Score them against alert criteria.
-5. Emit alerts for downstream delivery.
+1. Look up that ticker's most recently recorded actual (from
+   `data/earnings_history.jsonl`) as the growth baseline.
+2. Pull the matching quarterly revenue figure from SEC EDGAR (NASDAQ's free
+   calendar endpoint doesn't provide revenue at all).
+3. Compute EPS growth % and revenue growth % vs. that prior period.
+4. If both clear the thresholds in `config.yaml`, append an alert and send it
+   to Telegram immediately.
+5. Always record the new actual to `data/earnings_history.jsonl`, whether or
+   not it triggered an alert, so it becomes the baseline for next time.
+
+A ticker's very first recorded report has no baseline, so it's stored but
+never triggers an alert.
+
+### Known limitation: revenue can lag or be missing
+
+EDGAR filings sometimes post a day or two after the earnings release, and
+foreign private issuers (e.g. SAP, TotalEnergies) file 20-F, not 10-Q/10-K,
+so they never get a revenue figure from this source. When revenue is
+unavailable, the revenue-growth check simply can't pass, so no alert fires
+for that report even if EPS looked strong. Check `logs/run.jsonl` for
+`monitor_revenue_unavailable` events.
 
 ## Setup
 
@@ -29,45 +49,41 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-# Inspect NASDAQ calendar for a date
-python3 src/fetcher.py --calendar --date 2026-07-27
+# Run one check now (this is what cron calls every minute)
+python3 src/monitor.py
 
-# Find tickers at exact time and score them
-python3 src/fetcher.py --at --date 2026-07-27 --time 16:00 --window 30
-
-# Get earliest upcoming report from calendar
-python3 src/watcher.py --once --lookahead-days 7
-
-# Fetch live data for specific tickers
-python3 src/fetcher.py --tickers AAPL,TSLA
+# Re-check a specific past date (backfill / debugging)
+python3 src/monitor.py --date 2026-07-23
 ```
 
-## Fetcher commands
+Cron:
 
-- `--calendar --date YYYY-MM-DD`: print NASDAQ calendar for a date
-- `--at --date YYYY-MM-DD --time HH:MM [--window N]`: find tickers at exact time and score them
-- `--schedule`: suggest next exact report-arrival run target
-- `--tickers TICKER1,TICKER2`: fetch live data for specific tickers without watchlists
+```
+* * * * * cd ~/stock-earnings-monitor && python3 src/monitor.py >> logs/cron.log 2>&1
+```
 
-## Watcher commands
+## Visibility helper (not part of alerting)
 
-- `--once --lookahead-days N`: scan NASDAQ calendar for next N days and print earliest upcoming ticker
-- `--earliest`: print only the earliest upcoming ticker
+```bash
+# list upcoming reports over the next N days, purely for a human to glance at
+python3 src/watcher.py --once --lookahead-days 7
+```
 
 ## Alert criteria
 
-Default alerting criteria in `scorer.py`:
-- EPS actual exceeds estimate by >= 5%
-- Revenue actual exceeds estimate by >= 1%
+Defaults in `config.yaml`:
+- EPS actual grows >= 5% vs. this ticker's last recorded actual
+- Revenue actual grows >= 1% vs. this ticker's last recorded actual
 
-Configure via `config.yaml` or extend `scorer.py` if needed.
+Both must pass. Tune via `config.yaml` (`scorer.min_eps_growth_pct`,
+`scorer.min_revenue_growth_pct`).
 
 ## Telegram delivery
 
-`src/alert_telegram.py` reads `data/alerts.jsonl` and sends concise messages.
-Configure target chat ID via `--chat-id` or `TELEGRAM_CHAT_ID` env var.
+`monitor.py` sends alerts directly as they're found. `src/alert_telegram.py`
+is a standalone replay tool for resending everything currently in
+`data/alerts.jsonl` (useful after an outage or for manual testing):
 
-Example:
 ```bash
 python3 src/alert_telegram.py --chat-id 8782198462
 ```
@@ -80,18 +96,20 @@ Operational logs are written to `logs/run.jsonl`.
 tail -n 50 logs/run.jsonl | python3 -m json.tool --no-ensure-ascii
 ```
 
+Key events:
+- `monitor_run_done`
+- `monitor_first_record`
+- `monitor_revenue_unavailable`
+- `alert_send_done` / `alert_send_failed`
+
 ## Requirements
 
 `requirements.txt`:
-- `requests`
-- `beautifulsoup4`
-- `lxml`
-- `python-dotenv`
+- `pyyaml`
 
 ## Agent rules
 
 - Edits go in `src/*.py` only.
 - Data files live in `data/` and `logs/`.
 - Do not hardcode credentials; use `config.yaml` or environment variables.
-- Prefer exact-time operations in the every-minute cron loop.
 - Commit and push data updates with meaningful messages.

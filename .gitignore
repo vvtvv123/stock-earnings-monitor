@@ -8,7 +8,6 @@ __pycache__/
 data/*
 !data/.gitkeep
 !data/earnings_history.jsonl
-!data/upcoming_earnings.jsonl
 !data/alerts.jsonl
 logs/*
 !logs/.gitkeep
