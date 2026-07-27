@@ -137,8 +137,19 @@ def _as_number(value: Any) -> float | None:
 def _supports_time_info(row: dict[str, Any]) -> bool:
     report_date = str(row.get("report_date") or "").strip()
     time_raw = str(row.get("time") or row.get("callTime") or "").strip()
-    if time_raw in {"time-pre-market", "time-after-hours"} or "T" in report_date:
-        return bool(report_date)
+    if not report_date:
+        return False
+    if "T" in report_date:
+        return True
+    if time_raw in {"time-pre-market", "time-after-hours"}:
+        return True
+    if time_raw:
+        for fmt in ("%H:%M", "%I:%M%p", "%H:%M:%S"):
+            try:
+                datetime.strptime(time_raw, fmt)
+                return True
+            except Exception:
+                continue
     return False
 
 

@@ -8,6 +8,10 @@ from pathlib import Path
 from logging_utils import log_event
 
 
+NASDAQ_PATH = Path("watchlists/nasdaq_tickers.json")
+SP500_PATH = Path("watchlists/sp500_tickers.json")
+
+
 def load_tickers(nasdaq_path: Path, sp500_path: Path) -> dict:
     data = {}
     for ticket_path, market_name in ((nasdaq_path, "nasdaq"), (sp500_path, "sp500")):
@@ -72,8 +76,8 @@ def find_earliest_upcoming_from_watchlist(nasdaq_path: Path, sp500_path: Path) -
 
 
 def cmd_once(args: argparse.Namespace) -> int:
-    nasdaq_path = Path("watchlists/nasdaq_tickers.json")
-    sp500_path = Path("watchlists/sp500_tickers.json")
+    nasdaq_path = NASDAQ_PATH
+    sp500_path = SP500_PATH
     data = load_tickers(nasdaq_path, sp500_path)
     all_tickers = data.get("nasdaq", []) + data.get("sp500", [])
     all_tickers = sorted(set(all_tickers))

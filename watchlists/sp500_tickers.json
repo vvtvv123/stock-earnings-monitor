@@ -5,7 +5,12 @@
   },
   {
     "ticker": "AOS",
-    "next_earnings_ts": "2026-08-03T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.191000+00:00"
   },
   {
     "ticker": "ABT",
@@ -13,7 +18,12 @@
   },
   {
     "ticker": "ABBV",
-    "next_earnings_ts": "2026-08-12T16:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.219234+00:00"
   },
   {
     "ticker": "ACN",
@@ -25,7 +35,12 @@
   },
   {
     "ticker": "AMD",
-    "next_earnings_ts": "2026-08-06T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.328571+00:00"
   },
   {
     "ticker": "AES",
@@ -33,7 +48,12 @@
   },
   {
     "ticker": "AFL",
-    "next_earnings_ts": "2026-08-04T16:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.439958+00:00"
   },
   {
     "ticker": "A",
@@ -41,27 +61,57 @@
   },
   {
     "ticker": "APD",
-    "next_earnings_ts": "2026-07-25T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.184926+00:00"
   },
   {
     "ticker": "ABNB",
-    "next_earnings_ts": "2026-08-18T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.439569+00:00"
   },
   {
     "ticker": "AKAM",
-    "next_earnings_ts": "2026-07-26T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.442992+00:00"
   },
   {
     "ticker": "ALB",
-    "next_earnings_ts": "2026-08-11T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.391052+00:00"
   },
   {
     "ticker": "ARE",
-    "next_earnings_ts": "2026-08-11T12:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.299066+00:00"
   },
   {
     "ticker": "ALGN",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.077039+00:00"
   },
   {
     "ticker": "ALLE",
@@ -69,11 +119,21 @@
   },
   {
     "ticker": "LNT",
-    "next_earnings_ts": "2026-07-26T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.189155+00:00"
   },
   {
     "ticker": "ALL",
-    "next_earnings_ts": "2026-08-28T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.386431+00:00"
   },
   {
     "ticker": "GOOGL",
@@ -85,11 +145,21 @@
   },
   {
     "ticker": "MO",
-    "next_earnings_ts": "2026-08-20T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.182595+00:00"
   },
   {
     "ticker": "AMZN",
-    "next_earnings_ts": "2026-08-11T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.181709+00:00"
   },
   {
     "ticker": "AMCR",
@@ -97,11 +167,21 @@
   },
   {
     "ticker": "AEE",
-    "next_earnings_ts": "2026-08-05T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.187391+00:00"
   },
   {
     "ticker": "AEP",
-    "next_earnings_ts": "2026-08-20T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.184158+00:00"
   },
   {
     "ticker": "AXP",
@@ -109,15 +189,30 @@
   },
   {
     "ticker": "AIG",
-    "next_earnings_ts": "2026-08-09T16:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.440740+00:00"
   },
   {
     "ticker": "AMT",
-    "next_earnings_ts": "2026-07-30T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.975113+00:00"
   },
   {
     "ticker": "AWK",
-    "next_earnings_ts": "2026-08-03T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.073424+00:00"
   },
   {
     "ticker": "AMP",
@@ -125,15 +220,30 @@
   },
   {
     "ticker": "AME",
-    "next_earnings_ts": "2026-08-23T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.332121+00:00"
   },
   {
     "ticker": "AMGN",
-    "next_earnings_ts": "2026-08-22T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.329745+00:00"
   },
   {
     "ticker": "APH",
-    "next_earnings_ts": "2026-08-21T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.067306+00:00"
   },
   {
     "ticker": "ADI",
@@ -141,55 +251,120 @@
   },
   {
     "ticker": "AON",
-    "next_earnings_ts": "2026-08-26T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.069407+00:00"
   },
   {
     "ticker": "APA",
-    "next_earnings_ts": "2026-08-22T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.391443+00:00"
   },
   {
     "ticker": "APO",
-    "next_earnings_ts": "2026-08-25T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.331721+00:00"
   },
   {
     "ticker": "AAPL",
-    "next_earnings_ts": "2026-08-25T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.181192+00:00"
   },
   {
     "ticker": "AMAT",
-    "next_earnings_ts": "2026-08-11T16:00:00"
+    "next_earnings_ts": "2026-08-13",
+    "earnings_datetime_utc": "2026-08-13T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-13",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.678172+00:00"
   },
   {
     "ticker": "APP",
-    "next_earnings_ts": "2026-08-13T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.385429+00:00"
   },
   {
     "ticker": "APTV",
-    "next_earnings_ts": "2026-07-25T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.337520+00:00"
   },
   {
     "ticker": "ACGL",
-    "next_earnings_ts": "2026-08-02T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.977210+00:00"
   },
   {
     "ticker": "ADM",
-    "next_earnings_ts": "2026-08-20T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.332902+00:00"
   },
   {
     "ticker": "ARES",
-    "next_earnings_ts": "2026-08-25T12:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.220485+00:00"
   },
   {
     "ticker": "ANET",
-    "next_earnings_ts": "2026-08-03T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.329533+00:00"
   },
   {
     "ticker": "AJG",
-    "next_earnings_ts": "2026-08-07T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.185124+00:00"
   },
   {
     "ticker": "AIZ",
-    "next_earnings_ts": "2026-08-25T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.336658+00:00"
   },
   {
     "ticker": "T",
@@ -197,7 +372,12 @@
   },
   {
     "ticker": "ATO",
-    "next_earnings_ts": "2026-08-23T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.388829+00:00"
   },
   {
     "ticker": "ADSK",
@@ -205,7 +385,12 @@
   },
   {
     "ticker": "ADP",
-    "next_earnings_ts": "2026-08-03T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.068762+00:00"
   },
   {
     "ticker": "AZO",
@@ -217,11 +402,21 @@
   },
   {
     "ticker": "AVY",
-    "next_earnings_ts": "2026-08-10T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.189649+00:00"
   },
   {
     "ticker": "AXON",
-    "next_earnings_ts": "2026-08-04T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.388049+00:00"
   },
   {
     "ticker": "BKR",
@@ -229,7 +424,12 @@
   },
   {
     "ticker": "BALL",
-    "next_earnings_ts": "2026-08-15T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.335687+00:00"
   },
   {
     "ticker": "BAC",
@@ -237,11 +437,21 @@
   },
   {
     "ticker": "BAX",
-    "next_earnings_ts": "2026-07-31T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.190419+00:00"
   },
   {
     "ticker": "BDX",
-    "next_earnings_ts": "2026-07-30T12:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.440345+00:00"
   },
   {
     "ticker": "BRK-B",
@@ -257,7 +467,12 @@
   },
   {
     "ticker": "BIIB",
-    "next_earnings_ts": "2026-08-06T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.072608+00:00"
   },
   {
     "ticker": "BLK",
@@ -269,7 +484,12 @@
   },
   {
     "ticker": "XYZ",
-    "next_earnings_ts": "2026-07-29T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.387858+00:00"
   },
   {
     "ticker": "BNY",
@@ -277,19 +497,39 @@
   },
   {
     "ticker": "BA",
-    "next_earnings_ts": "2026-08-03T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.973748+00:00"
   },
   {
     "ticker": "BKNG",
-    "next_earnings_ts": "2026-08-06T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.330553+00:00"
   },
   {
     "ticker": "BSX",
-    "next_earnings_ts": "2026-08-14T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.070011+00:00"
   },
   {
     "ticker": "BMY",
-    "next_earnings_ts": "2026-08-12T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.182190+00:00"
   },
   {
     "ticker": "AVGO",
@@ -297,11 +537,21 @@
   },
   {
     "ticker": "BR",
-    "next_earnings_ts": "2026-08-22T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.335500+00:00"
   },
   {
     "ticker": "BRO",
-    "next_earnings_ts": "2026-08-12T08:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.933322+00:00"
   },
   {
     "ticker": "BF-B",
@@ -309,27 +559,57 @@
   },
   {
     "ticker": "BLDR",
-    "next_earnings_ts": "2026-08-17T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.191224+00:00"
   },
   {
     "ticker": "BG",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.074013+00:00"
   },
   {
     "ticker": "BXP",
-    "next_earnings_ts": "2026-08-07T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.980759+00:00"
   },
   {
     "ticker": "CHRW",
-    "next_earnings_ts": "2026-08-09T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.073828+00:00"
   },
   {
     "ticker": "CDNS",
-    "next_earnings_ts": "2026-08-04T12:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.932343+00:00"
   },
   {
     "ticker": "CPT",
-    "next_earnings_ts": "2026-08-04T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.190033+00:00"
   },
   {
     "ticker": "COF",
@@ -337,7 +617,12 @@
   },
   {
     "ticker": "CAH",
-    "next_earnings_ts": "2026-08-01T16:00:00"
+    "next_earnings_ts": "2026-08-11",
+    "earnings_datetime_utc": "2026-08-11T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-11",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.621363+00:00"
   },
   {
     "ticker": "CCL",
@@ -345,11 +630,21 @@
   },
   {
     "ticker": "CARR",
-    "next_earnings_ts": "2026-07-27T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.976637+00:00"
   },
   {
     "ticker": "CVNA",
-    "next_earnings_ts": "2026-08-22T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.069822+00:00"
   },
   {
     "ticker": "CASY",
@@ -357,39 +652,84 @@
   },
   {
     "ticker": "CAT",
-    "next_earnings_ts": "2026-08-17T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.328998+00:00"
   },
   {
     "ticker": "CBOE",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.221824+00:00"
   },
   {
     "ticker": "CBRE",
-    "next_earnings_ts": "2026-08-05T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.072030+00:00"
   },
   {
     "ticker": "CDW",
-    "next_earnings_ts": "2026-08-28T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.390292+00:00"
   },
   {
     "ticker": "COR",
-    "next_earnings_ts": "2026-08-20T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.387257+00:00"
   },
   {
     "ticker": "CNC",
-    "next_earnings_ts": "2026-08-05T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.977681+00:00"
   },
   {
     "ticker": "CNP",
-    "next_earnings_ts": "2026-07-27T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.978254+00:00"
   },
   {
     "ticker": "CF",
-    "next_earnings_ts": "2026-08-24T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.389894+00:00"
   },
   {
     "ticker": "CRL",
-    "next_earnings_ts": "2026-08-04T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.391639+00:00"
   },
   {
     "ticker": "SCHW",
@@ -401,11 +741,21 @@
   },
   {
     "ticker": "CVX",
-    "next_earnings_ts": "2026-08-11T12:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.219482+00:00"
   },
   {
     "ticker": "CMG",
-    "next_earnings_ts": "2026-07-31T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.071838+00:00"
   },
   {
     "ticker": "CB",
@@ -413,7 +763,12 @@
   },
   {
     "ticker": "CHD",
-    "next_earnings_ts": "2026-08-01T12:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.220894+00:00"
   },
   {
     "ticker": "CIEN",
@@ -421,11 +776,21 @@
   },
   {
     "ticker": "CI",
-    "next_earnings_ts": "2026-07-26T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.183969+00:00"
   },
   {
     "ticker": "CINF",
-    "next_earnings_ts": "2026-08-02T12:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.932813+00:00"
   },
   {
     "ticker": "CTAS",
@@ -445,7 +810,12 @@
   },
   {
     "ticker": "CLX",
-    "next_earnings_ts": "2026-08-20T08:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.298866+00:00"
   },
   {
     "ticker": "CME",
@@ -453,27 +823,57 @@
   },
   {
     "ticker": "CMS",
-    "next_earnings_ts": "2026-08-16T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.979417+00:00"
   },
   {
     "ticker": "KO",
-    "next_earnings_ts": "2026-08-19T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.972966+00:00"
   },
   {
     "ticker": "CTSH",
-    "next_earnings_ts": "2026-08-23T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.074389+00:00"
   },
   {
     "ticker": "COHR",
-    "next_earnings_ts": "2026-07-28T08:00:00"
+    "next_earnings_ts": "2026-08-12",
+    "earnings_datetime_utc": "2026-08-12T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-12",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.647421+00:00"
   },
   {
     "ticker": "COIN",
-    "next_earnings_ts": "2026-08-16T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.185999+00:00"
   },
   {
     "ticker": "CL",
-    "next_earnings_ts": "2026-08-28T08:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.220082+00:00"
   },
   {
     "ticker": "CMCSA",
@@ -485,11 +885,21 @@
   },
   {
     "ticker": "COP",
-    "next_earnings_ts": "2026-08-04T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.438493+00:00"
   },
   {
     "ticker": "ED",
-    "next_earnings_ts": "2026-08-18T16:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.440551+00:00"
   },
   {
     "ticker": "STZ",
@@ -497,7 +907,12 @@
   },
   {
     "ticker": "CEG",
-    "next_earnings_ts": "2026-08-24T12:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.439156+00:00"
   },
   {
     "ticker": "COO",
@@ -509,19 +924,39 @@
   },
   {
     "ticker": "GLW",
-    "next_earnings_ts": "2026-08-25T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.973943+00:00"
   },
   {
     "ticker": "CPAY",
-    "next_earnings_ts": "2026-08-16T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.389218+00:00"
   },
   {
     "ticker": "CTVA",
-    "next_earnings_ts": "2026-07-27T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.185383+00:00"
   },
   {
     "ticker": "CSGP",
-    "next_earnings_ts": "2026-08-28T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.980568+00:00"
   },
   {
     "ticker": "COST",
@@ -529,7 +964,12 @@
   },
   {
     "ticker": "CRH",
-    "next_earnings_ts": "2026-08-16T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.184735+00:00"
   },
   {
     "ticker": "CRWD",
@@ -545,11 +985,21 @@
   },
   {
     "ticker": "CMI",
-    "next_earnings_ts": "2026-07-30T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.330952+00:00"
   },
   {
     "ticker": "CVS",
-    "next_earnings_ts": "2026-08-09T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.385146+00:00"
   },
   {
     "ticker": "DHR",
@@ -561,11 +1011,21 @@
   },
   {
     "ticker": "DDOG",
-    "next_earnings_ts": "2026-08-10T12:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.439360+00:00"
   },
   {
     "ticker": "DVA",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.336274+00:00"
   },
   {
     "ticker": "DECK",
@@ -573,7 +1033,12 @@
   },
   {
     "ticker": "DE",
-    "next_earnings_ts": "2026-08-22T16:00:00"
+    "next_earnings_ts": "2026-08-20",
+    "earnings_datetime_utc": "2026-08-20T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-20",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.876025+00:00"
   },
   {
     "ticker": "DELL",
@@ -585,15 +1050,30 @@
   },
   {
     "ticker": "DVN",
-    "next_earnings_ts": "2026-08-22T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.332312+00:00"
   },
   {
     "ticker": "DXCM",
-    "next_earnings_ts": "2026-08-14T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.188187+00:00"
   },
   {
     "ticker": "FANG",
-    "next_earnings_ts": "2026-08-14T12:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.297679+00:00"
   },
   {
     "ticker": "DLR",
@@ -609,7 +1089,12 @@
   },
   {
     "ticker": "D",
-    "next_earnings_ts": "2026-08-27T12:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.220293+00:00"
   },
   {
     "ticker": "DPZ",
@@ -617,7 +1102,12 @@
   },
   {
     "ticker": "DASH",
-    "next_earnings_ts": "2026-08-10T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.386035+00:00"
   },
   {
     "ticker": "DOV",
@@ -633,23 +1123,48 @@
   },
   {
     "ticker": "DTE",
-    "next_earnings_ts": "2026-08-23T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.977875+00:00"
   },
   {
     "ticker": "DUK",
-    "next_earnings_ts": "2026-08-21T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.330747+00:00"
   },
   {
     "ticker": "DD",
-    "next_earnings_ts": "2026-08-14T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.335123+00:00"
   },
   {
     "ticker": "ETN",
-    "next_earnings_ts": "2026-08-06T16:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.219887+00:00"
   },
   {
     "ticker": "EBAY",
-    "next_earnings_ts": "2026-08-17T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.387664+00:00"
   },
   {
     "ticker": "ECHO",
@@ -657,11 +1172,21 @@
   },
   {
     "ticker": "ECL",
-    "next_earnings_ts": "2026-08-09T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.975684+00:00"
   },
   {
     "ticker": "EIX",
-    "next_earnings_ts": "2026-08-02T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.187597+00:00"
   },
   {
     "ticker": "EW",
@@ -677,19 +1202,39 @@
   },
   {
     "ticker": "EME",
-    "next_earnings_ts": "2026-08-13T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.186798+00:00"
   },
   {
     "ticker": "EMR",
-    "next_earnings_ts": "2026-08-17T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.331336+00:00"
   },
   {
     "ticker": "ETR",
-    "next_earnings_ts": "2026-08-23T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.070597+00:00"
   },
   {
     "ticker": "EOG",
-    "next_earnings_ts": "2026-08-09T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.331529+00:00"
   },
   {
     "ticker": "EQT",
@@ -701,7 +1246,12 @@
   },
   {
     "ticker": "EQIX",
-    "next_earnings_ts": "2026-07-29T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.068558+00:00"
   },
   {
     "ticker": "EQR",
@@ -709,55 +1259,120 @@
   },
   {
     "ticker": "ERIE",
-    "next_earnings_ts": "2026-07-27T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.190617+00:00"
   },
   {
     "ticker": "ESS",
-    "next_earnings_ts": "2026-08-21T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.074583+00:00"
   },
   {
     "ticker": "EL",
-    "next_earnings_ts": "2026-07-27T12:00:00"
+    "next_earnings_ts": "2026-08-19",
+    "earnings_datetime_utc": "2026-08-19T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-19",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.846669+00:00"
   },
   {
     "ticker": "EG",
-    "next_earnings_ts": "2026-08-26T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.076093+00:00"
   },
   {
     "ticker": "EVRG",
-    "next_earnings_ts": "2026-08-18T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.442795+00:00"
   },
   {
     "ticker": "ES",
-    "next_earnings_ts": "2026-08-07T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.187798+00:00"
   },
   {
     "ticker": "EXC",
-    "next_earnings_ts": "2026-08-08T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.185801+00:00"
   },
   {
     "ticker": "EXE",
-    "next_earnings_ts": "2026-07-31T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.979989+00:00"
   },
   {
     "ticker": "EXPE",
-    "next_earnings_ts": "2026-08-25T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.388445+00:00"
   },
   {
     "ticker": "EXPD",
-    "next_earnings_ts": "2026-08-28T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.334542+00:00"
   },
   {
     "ticker": "EXR",
-    "next_earnings_ts": "2026-08-16T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.978065+00:00"
   },
   {
     "ticker": "XOM",
-    "next_earnings_ts": "2026-08-22T16:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.218728+00:00"
   },
   {
     "ticker": "FFIV",
-    "next_earnings_ts": "2026-08-14T16:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.933611+00:00"
   },
   {
     "ticker": "FDS",
@@ -765,7 +1380,12 @@
   },
   {
     "ticker": "FICO",
-    "next_earnings_ts": "2026-08-19T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.073180+00:00"
   },
   {
     "ticker": "FAST",
@@ -773,7 +1393,12 @@
   },
   {
     "ticker": "FRT",
-    "next_earnings_ts": "2026-07-31T16:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.222023+00:00"
   },
   {
     "ticker": "FDX",
@@ -785,7 +1410,12 @@
   },
   {
     "ticker": "FIS",
-    "next_earnings_ts": "2026-07-28T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.334734+00:00"
   },
   {
     "ticker": "FITB",
@@ -793,43 +1423,93 @@
   },
   {
     "ticker": "FSLR",
-    "next_earnings_ts": "2026-08-14T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.188770+00:00"
   },
   {
     "ticker": "FE",
-    "next_earnings_ts": "2026-07-29T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.978439+00:00"
   },
   {
     "ticker": "FISV",
-    "next_earnings_ts": "2026-08-24T16:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.441804+00:00"
   },
   {
     "ticker": "FLEX",
-    "next_earnings_ts": "2026-07-25T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.071428+00:00"
   },
   {
     "ticker": "F",
-    "next_earnings_ts": "2026-08-18T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.976831+00:00"
   },
   {
     "ticker": "FTNT",
-    "next_earnings_ts": "2026-08-28T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.068103+00:00"
   },
   {
     "ticker": "FTV",
-    "next_earnings_ts": "2026-08-15T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.074961+00:00"
   },
   {
     "ticker": "FOXA",
-    "next_earnings_ts": "2026-08-10T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.442402+00:00"
   },
   {
     "ticker": "FOX",
-    "next_earnings_ts": "2026-08-27T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.442198+00:00"
   },
   {
     "ticker": "BEN",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.221623+00:00"
   },
   {
     "ticker": "FCX",
@@ -837,11 +1517,21 @@
   },
   {
     "ticker": "GRMN",
-    "next_earnings_ts": "2026-08-05T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.071644+00:00"
   },
   {
     "ticker": "IT",
-    "next_earnings_ts": "2026-08-19T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.338297+00:00"
   },
   {
     "ticker": "GE",
@@ -849,7 +1539,12 @@
   },
   {
     "ticker": "GEHC",
-    "next_earnings_ts": "2026-08-07T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.072805+00:00"
   },
   {
     "ticker": "GEV",
@@ -857,15 +1552,30 @@
   },
   {
     "ticker": "GEN",
-    "next_earnings_ts": "2026-08-27T16:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.443210+00:00"
   },
   {
     "ticker": "GNRC",
-    "next_earnings_ts": "2026-08-04T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.076663+00:00"
   },
   {
     "ticker": "GD",
-    "next_earnings_ts": "2026-08-21T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.068311+00:00"
   },
   {
     "ticker": "GIS",
@@ -881,11 +1591,21 @@
   },
   {
     "ticker": "GILD",
-    "next_earnings_ts": "2026-08-21T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.330155+00:00"
   },
   {
     "ticker": "GPN",
-    "next_earnings_ts": "2026-08-16T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.389701+00:00"
   },
   {
     "ticker": "GL",
@@ -893,7 +1613,12 @@
   },
   {
     "ticker": "GDDY",
-    "next_earnings_ts": "2026-08-12T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.189843+00:00"
   },
   {
     "ticker": "GS",
@@ -917,15 +1642,30 @@
   },
   {
     "ticker": "DOC",
-    "next_earnings_ts": "2026-08-12T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.336086+00:00"
   },
   {
     "ticker": "HSIC",
-    "next_earnings_ts": "2026-08-24T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.337918+00:00"
   },
   {
     "ticker": "HSY",
-    "next_earnings_ts": "2026-08-10T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.186581+00:00"
   },
   {
     "ticker": "HPE",
@@ -933,15 +1673,30 @@
   },
   {
     "ticker": "HLT",
-    "next_earnings_ts": "2026-08-23T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.975877+00:00"
   },
   {
     "ticker": "HD",
-    "next_earnings_ts": "2026-08-11T16:00:00"
+    "next_earnings_ts": "2026-08-18",
+    "earnings_datetime_utc": "2026-08-18T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-18",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.820467+00:00"
   },
   {
     "ticker": "HONA",
-    "next_earnings_ts": "2026-08-24T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.386635+00:00"
   },
   {
     "ticker": "HON",
@@ -953,11 +1708,21 @@
   },
   {
     "ticker": "HST",
-    "next_earnings_ts": "2026-08-25T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.390481+00:00"
   },
   {
     "ticker": "HWM",
-    "next_earnings_ts": "2026-08-18T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.438934+00:00"
   },
   {
     "ticker": "HPQ",
@@ -965,11 +1730,21 @@
   },
   {
     "ticker": "HUBB",
-    "next_earnings_ts": "2026-08-02T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.978844+00:00"
   },
   {
     "ticker": "HUM",
-    "next_earnings_ts": "2026-08-04T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.071168+00:00"
   },
   {
     "ticker": "HBAN",
@@ -977,7 +1752,12 @@
   },
   {
     "ticker": "HII",
-    "next_earnings_ts": "2026-08-22T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.190221+00:00"
   },
   {
     "ticker": "IBM",
@@ -985,27 +1765,57 @@
   },
   {
     "ticker": "IEX",
-    "next_earnings_ts": "2026-08-15T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.075335+00:00"
   },
   {
     "ticker": "IDXX",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.332705+00:00"
   },
   {
     "ticker": "ITW",
-    "next_earnings_ts": "2026-08-08T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.974734+00:00"
   },
   {
     "ticker": "INCY",
-    "next_earnings_ts": "2026-08-18T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.979225+00:00"
   },
   {
     "ticker": "IR",
-    "next_earnings_ts": "2026-08-16T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.186996+00:00"
   },
   {
     "ticker": "PODD",
-    "next_earnings_ts": "2026-08-20T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.391832+00:00"
   },
   {
     "ticker": "INTC",
@@ -1017,15 +1827,30 @@
   },
   {
     "ticker": "ICE",
-    "next_earnings_ts": "2026-08-09T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.183775+00:00"
   },
   {
     "ticker": "IFF",
-    "next_earnings_ts": "2026-07-25T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.334932+00:00"
   },
   {
     "ticker": "IP",
-    "next_earnings_ts": "2026-08-05T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.188963+00:00"
   },
   {
     "ticker": "INTU",
@@ -1037,19 +1862,39 @@
   },
   {
     "ticker": "IVZ",
-    "next_earnings_ts": "2026-08-04T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.980370+00:00"
   },
   {
     "ticker": "INVH",
-    "next_earnings_ts": "2026-08-12T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.075149+00:00"
   },
   {
     "ticker": "IQV",
-    "next_earnings_ts": "2026-07-25T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.977473+00:00"
   },
   {
     "ticker": "IRM",
-    "next_earnings_ts": "2026-08-22T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.388250+00:00"
   },
   {
     "ticker": "JBHT",
@@ -1065,7 +1910,12 @@
   },
   {
     "ticker": "J",
-    "next_earnings_ts": "2026-08-20T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.335886+00:00"
   },
   {
     "ticker": "JNJ",
@@ -1073,7 +1923,12 @@
   },
   {
     "ticker": "JCI",
-    "next_earnings_ts": "2026-08-07T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.069146+00:00"
   },
   {
     "ticker": "JPM",
@@ -1081,11 +1936,21 @@
   },
   {
     "ticker": "KVUE",
-    "next_earnings_ts": "2026-08-11T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.441118+00:00"
   },
   {
     "ticker": "KDP",
-    "next_earnings_ts": "2026-08-24T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.440930+00:00"
   },
   {
     "ticker": "KEY",
@@ -1097,11 +1962,21 @@
   },
   {
     "ticker": "KMB",
-    "next_earnings_ts": "2026-08-14T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.333964+00:00"
   },
   {
     "ticker": "KIM",
-    "next_earnings_ts": "2026-08-17T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.335311+00:00"
   },
   {
     "ticker": "KMI",
@@ -1109,15 +1984,30 @@
   },
   {
     "ticker": "KKR",
-    "next_earnings_ts": "2026-08-27T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.183582+00:00"
   },
   {
     "ticker": "KLAC",
-    "next_earnings_ts": "2026-08-11T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.973212+00:00"
   },
   {
     "ticker": "KHC",
-    "next_earnings_ts": "2026-08-15T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.388638+00:00"
   },
   {
     "ticker": "KR",
@@ -1125,15 +2015,30 @@
   },
   {
     "ticker": "LHX",
-    "next_earnings_ts": "2026-08-06T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.070206+00:00"
   },
   {
     "ticker": "LH",
-    "next_earnings_ts": "2026-08-10T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.188579+00:00"
   },
   {
     "ticker": "LRCX",
-    "next_earnings_ts": "2026-08-23T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.066850+00:00"
   },
   {
     "ticker": "LVS",
@@ -1141,7 +2046,12 @@
   },
   {
     "ticker": "LDOS",
-    "next_earnings_ts": "2026-08-08T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.336470+00:00"
   },
   {
     "ticker": "LEN",
@@ -1149,19 +2059,39 @@
   },
   {
     "ticker": "LII",
-    "next_earnings_ts": "2026-08-05T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.074774+00:00"
   },
   {
     "ticker": "LLY",
-    "next_earnings_ts": "2026-08-17T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.383866+00:00"
   },
   {
     "ticker": "LIN",
-    "next_earnings_ts": "2026-08-10T12:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.219690+00:00"
   },
   {
     "ticker": "LYV",
-    "next_earnings_ts": "2026-08-02T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.186190+00:00"
   },
   {
     "ticker": "LMT",
@@ -1169,11 +2099,21 @@
   },
   {
     "ticker": "L",
-    "next_earnings_ts": "2026-08-06T12:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.298271+00:00"
   },
   {
     "ticker": "LOW",
-    "next_earnings_ts": "2026-08-12T08:00:00"
+    "next_earnings_ts": "2026-08-19",
+    "earnings_datetime_utc": "2026-08-19T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-19",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.845876+00:00"
   },
   {
     "ticker": "LULU",
@@ -1181,11 +2121,21 @@
   },
   {
     "ticker": "LITE",
-    "next_earnings_ts": "2026-07-27T12:00:00"
+    "next_earnings_ts": "2026-08-11",
+    "earnings_datetime_utc": "2026-08-11T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-11",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.620854+00:00"
   },
   {
     "ticker": "LYB",
-    "next_earnings_ts": "2026-08-07T12:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.221388+00:00"
   },
   {
     "ticker": "MTB",
@@ -1193,11 +2143,21 @@
   },
   {
     "ticker": "MPC",
-    "next_earnings_ts": "2026-08-27T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.331146+00:00"
   },
   {
     "ticker": "MAR",
-    "next_earnings_ts": "2026-08-07T16:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.296969+00:00"
   },
   {
     "ticker": "MRSH",
@@ -1205,7 +2165,12 @@
   },
   {
     "ticker": "MLM",
-    "next_earnings_ts": "2026-08-10T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.187194+00:00"
   },
   {
     "ticker": "MRVL",
@@ -1213,11 +2178,21 @@
   },
   {
     "ticker": "MAS",
-    "next_earnings_ts": "2026-08-11T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.075519+00:00"
   },
   {
     "ticker": "MA",
-    "next_earnings_ts": "2026-08-09T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.181969+00:00"
   },
   {
     "ticker": "MKC",
@@ -1225,35 +2200,75 @@
   },
   {
     "ticker": "MCD",
-    "next_earnings_ts": "2026-08-05T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.329956+00:00"
   },
   {
     "ticker": "MCK",
-    "next_earnings_ts": "2026-07-31T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.385650+00:00"
   },
   {
     "ticker": "MDT",
-    "next_earnings_ts": "2026-08-08T08:00:00"
+    "next_earnings_ts": "2026-09-01",
+    "earnings_datetime_utc": "2026-09-01T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-09-01",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:49.344086+00:00"
   },
   {
     "ticker": "MRK",
-    "next_earnings_ts": "2026-08-10T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.329259+00:00"
   },
   {
     "ticker": "META",
-    "next_earnings_ts": "2026-08-16T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.066604+00:00"
   },
   {
     "ticker": "MET",
-    "next_earnings_ts": "2026-07-30T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.387031+00:00"
   },
   {
     "ticker": "MTD",
-    "next_earnings_ts": "2026-08-14T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.188378+00:00"
   },
   {
     "ticker": "MGM",
-    "next_earnings_ts": "2026-08-07T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.077266+00:00"
   },
   {
     "ticker": "MCHP",
@@ -1265,27 +2280,57 @@
   },
   {
     "ticker": "MSFT",
-    "next_earnings_ts": "2026-08-14T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.066147+00:00"
   },
   {
     "ticker": "MAA",
-    "next_earnings_ts": "2026-08-10T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.075716+00:00"
   },
   {
     "ticker": "MRNA",
-    "next_earnings_ts": "2026-07-27T12:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.221096+00:00"
   },
   {
     "ticker": "TAP",
-    "next_earnings_ts": "2026-08-14T12:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.443618+00:00"
   },
   {
     "ticker": "MDLZ",
-    "next_earnings_ts": "2026-08-14T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.974925+00:00"
   },
   {
     "ticker": "MPWR",
-    "next_earnings_ts": "2026-07-31T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.184347+00:00"
   },
   {
     "ticker": "MNST",
@@ -1301,11 +2346,21 @@
   },
   {
     "ticker": "MOS",
-    "next_earnings_ts": "2026-08-15T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.338492+00:00"
   },
   {
     "ticker": "MSI",
-    "next_earnings_ts": "2026-08-27T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.386240+00:00"
   },
   {
     "ticker": "MSCI",
@@ -1329,11 +2384,21 @@
   },
   {
     "ticker": "NWSA",
-    "next_earnings_ts": "2026-08-27T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.390861+00:00"
   },
   {
     "ticker": "NWS",
-    "next_earnings_ts": "2026-07-31T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.390671+00:00"
   },
   {
     "ticker": "NEE",
@@ -1345,7 +2410,12 @@
   },
   {
     "ticker": "NI",
-    "next_earnings_ts": "2026-08-10T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.389505+00:00"
   },
   {
     "ticker": "NDSN",
@@ -1365,15 +2435,30 @@
   },
   {
     "ticker": "NCLH",
-    "next_earnings_ts": "2026-08-09T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.190808+00:00"
   },
   {
     "ticker": "NRG",
-    "next_earnings_ts": "2026-08-03T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.334154+00:00"
   },
   {
     "ticker": "NUE",
-    "next_earnings_ts": "2026-07-25T12:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.932606+00:00"
   },
   {
     "ticker": "NVDA",
@@ -1385,31 +2470,66 @@
   },
   {
     "ticker": "NXPI",
-    "next_earnings_ts": "2026-08-19T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.976064+00:00"
   },
   {
     "ticker": "ORLY",
-    "next_earnings_ts": "2026-08-18T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.069628+00:00"
   },
   {
     "ticker": "OXY",
-    "next_earnings_ts": "2026-08-01T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.387452+00:00"
   },
   {
     "ticker": "ODFL",
-    "next_earnings_ts": "2026-08-03T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.070787+00:00"
   },
   {
     "ticker": "OMC",
-    "next_earnings_ts": "2026-08-28T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.979802+00:00"
   },
   {
     "ticker": "ON",
-    "next_earnings_ts": "2026-08-18T12:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.297875+00:00"
   },
   {
     "ticker": "OKE",
-    "next_earnings_ts": "2026-08-19T12:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.297462+00:00"
   },
   {
     "ticker": "ORCL",
@@ -1421,7 +2541,12 @@
   },
   {
     "ticker": "PCAR",
-    "next_earnings_ts": "2026-07-25T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.976252+00:00"
   },
   {
     "ticker": "PKG",
@@ -1429,7 +2554,12 @@
   },
   {
     "ticker": "PLTR",
-    "next_earnings_ts": "2026-08-08T08:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.296249+00:00"
   },
   {
     "ticker": "PANW",
@@ -1437,7 +2567,12 @@
   },
   {
     "ticker": "PSKY",
-    "next_earnings_ts": "2026-08-23T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.338109+00:00"
   },
   {
     "ticker": "PH",
@@ -1449,11 +2584,21 @@
   },
   {
     "ticker": "PYPL",
-    "next_earnings_ts": "2026-07-25T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.977023+00:00"
   },
   {
     "ticker": "PNR",
-    "next_earnings_ts": "2026-08-12T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.980945+00:00"
   },
   {
     "ticker": "PEP",
@@ -1461,7 +2606,12 @@
   },
   {
     "ticker": "PFE",
-    "next_earnings_ts": "2026-08-28T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.330352+00:00"
   },
   {
     "ticker": "PCG",
@@ -1473,11 +2623,21 @@
   },
   {
     "ticker": "PSX",
-    "next_earnings_ts": "2026-08-17T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.385844+00:00"
   },
   {
     "ticker": "PNW",
-    "next_earnings_ts": "2026-08-10T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.336851+00:00"
   },
   {
     "ticker": "PNC",
@@ -1485,19 +2645,39 @@
   },
   {
     "ticker": "PPG",
-    "next_earnings_ts": "2026-08-24T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.979032+00:00"
   },
   {
     "ticker": "PPL",
-    "next_earnings_ts": "2026-07-27T08:00:00"
+    "next_earnings_ts": "2026-08-07",
+    "earnings_datetime_utc": "2026-08-07T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-07",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.467612+00:00"
   },
   {
     "ticker": "PFG",
-    "next_earnings_ts": "2026-08-13T16:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.933045+00:00"
   },
   {
     "ticker": "PG",
-    "next_earnings_ts": "2026-08-07T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.067056+00:00"
   },
   {
     "ticker": "PGR",
@@ -1509,19 +2689,39 @@
   },
   {
     "ticker": "PRU",
-    "next_earnings_ts": "2026-08-09T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.333095+00:00"
   },
   {
     "ticker": "PEG",
-    "next_earnings_ts": "2026-08-26T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.333350+00:00"
   },
   {
     "ticker": "PTC",
-    "next_earnings_ts": "2026-08-05T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.076467+00:00"
   },
   {
     "ticker": "PSA",
-    "next_earnings_ts": "2026-07-26T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.070398+00:00"
   },
   {
     "ticker": "PHM",
@@ -1529,11 +2729,21 @@
   },
   {
     "ticker": "PWR",
-    "next_earnings_ts": "2026-08-27T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.183183+00:00"
   },
   {
     "ticker": "QCOM",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.067512+00:00"
   },
   {
     "ticker": "DGX",
@@ -1541,11 +2751,21 @@
   },
   {
     "ticker": "Q",
-    "next_earnings_ts": "2026-08-28T08:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.334348+00:00"
   },
   {
     "ticker": "RL",
-    "next_earnings_ts": "2026-07-27T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.442004+00:00"
   },
   {
     "ticker": "RJF",
@@ -1557,15 +2777,30 @@
   },
   {
     "ticker": "O",
-    "next_earnings_ts": "2026-08-15T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.386839+00:00"
   },
   {
     "ticker": "REG",
-    "next_earnings_ts": "2026-08-02T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.075904+00:00"
   },
   {
     "ticker": "REGN",
-    "next_earnings_ts": "2026-08-01T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.184546+00:00"
   },
   {
     "ticker": "RF",
@@ -1573,23 +2808,48 @@
   },
   {
     "ticker": "RSG",
-    "next_earnings_ts": "2026-07-31T16:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.439763+00:00"
   },
   {
     "ticker": "RMD",
-    "next_earnings_ts": "2026-08-08T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.441612+00:00"
   },
   {
     "ticker": "RVTY",
-    "next_earnings_ts": "2026-08-11T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.337047+00:00"
   },
   {
     "ticker": "HOOD",
-    "next_earnings_ts": "2026-07-31T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.068954+00:00"
   },
   {
     "ticker": "ROK",
-    "next_earnings_ts": "2026-08-27T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.332513+00:00"
   },
   {
     "ticker": "ROL",
@@ -1605,11 +2865,21 @@
   },
   {
     "ticker": "RCL",
-    "next_earnings_ts": "2026-08-22T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.975486+00:00"
   },
   {
     "ticker": "SPGI",
-    "next_earnings_ts": "2026-08-01T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.974139+00:00"
   },
   {
     "ticker": "CRM",
@@ -1617,11 +2887,21 @@
   },
   {
     "ticker": "SNDK",
-    "next_earnings_ts": "2026-08-23T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.384313+00:00"
   },
   {
     "ticker": "SBAC",
-    "next_earnings_ts": "2026-08-18T08:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.298669+00:00"
   },
   {
     "ticker": "SLB",
@@ -1629,11 +2909,21 @@
   },
   {
     "ticker": "STX",
-    "next_earnings_ts": "2026-08-26T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.973533+00:00"
   },
   {
     "ticker": "SRE",
-    "next_earnings_ts": "2026-08-05T16:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.440150+00:00"
   },
   {
     "ticker": "NOW",
@@ -1641,15 +2931,30 @@
   },
   {
     "ticker": "SHW",
-    "next_earnings_ts": "2026-08-25T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.975299+00:00"
   },
   {
     "ticker": "SPG",
-    "next_earnings_ts": "2026-08-12T16:00:00"
+    "next_earnings_ts": "2026-08-10",
+    "earnings_datetime_utc": "2026-08-10T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-10",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.589737+00:00"
   },
   {
     "ticker": "SWKS",
-    "next_earnings_ts": "2026-07-28T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.981132+00:00"
   },
   {
     "ticker": "SJM",
@@ -1657,7 +2962,12 @@
   },
   {
     "ticker": "SW",
-    "next_earnings_ts": "2026-08-06T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.074202+00:00"
   },
   {
     "ticker": "SNA",
@@ -1665,11 +2975,21 @@
   },
   {
     "ticker": "SOLV",
-    "next_earnings_ts": "2026-08-25T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.391250+00:00"
   },
   {
     "ticker": "SO",
-    "next_earnings_ts": "2026-07-27T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.182790+00:00"
   },
   {
     "ticker": "LUV",
@@ -1677,11 +2997,21 @@
   },
   {
     "ticker": "SWK",
-    "next_earnings_ts": "2026-08-17T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.076281+00:00"
   },
   {
     "ticker": "SBUX",
-    "next_earnings_ts": "2026-07-27T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.067718+00:00"
   },
   {
     "ticker": "STT",
@@ -1697,11 +3027,21 @@
   },
   {
     "ticker": "SYK",
-    "next_earnings_ts": "2026-08-12T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.182388+00:00"
   },
   {
     "ticker": "SMCI",
-    "next_earnings_ts": "2026-08-01T08:00:00"
+    "next_earnings_ts": "2026-08-11",
+    "earnings_datetime_utc": "2026-08-11T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-11",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.621645+00:00"
   },
   {
     "ticker": "SYF",
@@ -1709,11 +3049,21 @@
   },
   {
     "ticker": "SNPS",
-    "next_earnings_ts": "2026-08-26T16:00:00"
+    "next_earnings_ts": "2026-08-26",
+    "earnings_datetime_utc": "2026-08-26T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-26",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:49.171640+00:00"
   },
   {
     "ticker": "SYY",
-    "next_earnings_ts": "2026-08-26T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.333562+00:00"
   },
   {
     "ticker": "TMUS",
@@ -1721,11 +3071,21 @@
   },
   {
     "ticker": "TROW",
-    "next_earnings_ts": "2026-08-08T16:00:00"
+    "next_earnings_ts": "2026-07-31",
+    "earnings_datetime_utc": "2026-07-31T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-31",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.220678+00:00"
   },
   {
     "ticker": "TTWO",
-    "next_earnings_ts": "2026-08-16T16:00:00"
+    "next_earnings_ts": "2026-08-07",
+    "earnings_datetime_utc": "2026-08-07T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-07",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.467379+00:00"
   },
   {
     "ticker": "TPR",
@@ -1737,7 +3097,12 @@
   },
   {
     "ticker": "TGT",
-    "next_earnings_ts": "2026-08-27T16:00:00"
+    "next_earnings_ts": "2026-08-19",
+    "earnings_datetime_utc": "2026-08-19T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-19",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.846411+00:00"
   },
   {
     "ticker": "TEL",
@@ -1749,7 +3114,12 @@
   },
   {
     "ticker": "TER",
-    "next_earnings_ts": "2026-07-28T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.976439+00:00"
   },
   {
     "ticker": "TSLA",
@@ -1761,11 +3131,21 @@
   },
   {
     "ticker": "TPL",
-    "next_earnings_ts": "2026-07-28T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.389017+00:00"
   },
   {
     "ticker": "TXT",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.980179+00:00"
   },
   {
     "ticker": "TMO",
@@ -1777,11 +3157,21 @@
   },
   {
     "ticker": "TKO",
-    "next_earnings_ts": "2026-07-27T16:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.298078+00:00"
   },
   {
     "ticker": "TTD",
-    "next_earnings_ts": "2026-08-02T08:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.443421+00:00"
   },
   {
     "ticker": "TSCO",
@@ -1789,7 +3179,12 @@
   },
   {
     "ticker": "TT",
-    "next_earnings_ts": "2026-08-11T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.182989+00:00"
   },
   {
     "ticker": "TDG",
@@ -1809,11 +3204,21 @@
   },
   {
     "ticker": "TYL",
-    "next_earnings_ts": "2026-08-08T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.076852+00:00"
   },
   {
     "ticker": "TSN",
-    "next_earnings_ts": "2026-08-01T08:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.298463+00:00"
   },
   {
     "ticker": "USB",
@@ -1821,11 +3226,21 @@
   },
   {
     "ticker": "UBER",
-    "next_earnings_ts": "2026-08-17T08:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.384944+00:00"
   },
   {
     "ticker": "UDR",
-    "next_earnings_ts": "2026-07-30T12:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.933817+00:00"
   },
   {
     "ticker": "ULTA",
@@ -1841,7 +3256,12 @@
   },
   {
     "ticker": "UPS",
-    "next_earnings_ts": "2026-08-06T08:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.974334+00:00"
   },
   {
     "ticker": "URI",
@@ -1853,11 +3273,21 @@
   },
   {
     "ticker": "UHS",
-    "next_earnings_ts": "2026-08-19T16:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.934024+00:00"
   },
   {
     "ticker": "VLO",
-    "next_earnings_ts": "2026-08-06T08:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.183377+00:00"
   },
   {
     "ticker": "VEEV",
@@ -1865,11 +3295,21 @@
   },
   {
     "ticker": "VTR",
-    "next_earnings_ts": "2026-08-08T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.070975+00:00"
   },
   {
     "ticker": "VLTO",
-    "next_earnings_ts": "2026-08-21T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.979613+00:00"
   },
   {
     "ticker": "VRSN",
@@ -1877,7 +3317,12 @@
   },
   {
     "ticker": "VRSK",
-    "next_earnings_ts": "2026-08-02T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.073635+00:00"
   },
   {
     "ticker": "VZ",
@@ -1885,31 +3330,66 @@
   },
   {
     "ticker": "VRTX",
-    "next_earnings_ts": "2026-08-13T12:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.296725+00:00"
   },
   {
     "ticker": "VRT",
-    "next_earnings_ts": "2026-07-28T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.067909+00:00"
   },
   {
     "ticker": "VTRS",
-    "next_earnings_ts": "2026-08-21T12:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.442601+00:00"
   },
   {
     "ticker": "VICI",
-    "next_earnings_ts": "2026-08-10T16:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.072991+00:00"
   },
   {
     "ticker": "V",
-    "next_earnings_ts": "2026-08-25T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.972531+00:00"
   },
   {
     "ticker": "VST",
-    "next_earnings_ts": "2026-08-15T08:00:00"
+    "next_earnings_ts": "2026-08-07",
+    "earnings_datetime_utc": "2026-08-07T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-07",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.466967+00:00"
   },
   {
     "ticker": "VMC",
-    "next_earnings_ts": "2026-08-13T08:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.072413+00:00"
   },
   {
     "ticker": "WRB",
@@ -1917,7 +3397,12 @@
   },
   {
     "ticker": "GWW",
-    "next_earnings_ts": "2026-08-08T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.331922+00:00"
   },
   {
     "ticker": "WAB",
@@ -1925,11 +3410,21 @@
   },
   {
     "ticker": "WMT",
-    "next_earnings_ts": "2026-08-25T08:00:00"
+    "next_earnings_ts": "2026-08-20",
+    "earnings_datetime_utc": "2026-08-20T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-20",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.875549+00:00"
   },
   {
     "ticker": "DIS",
-    "next_earnings_ts": "2026-08-02T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.384747+00:00"
   },
   {
     "ticker": "WBD",
@@ -1937,15 +3432,30 @@
   },
   {
     "ticker": "WM",
-    "next_earnings_ts": "2026-07-26T16:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.974530+00:00"
   },
   {
     "ticker": "WAT",
-    "next_earnings_ts": "2026-08-07T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.333764+00:00"
   },
   {
     "ticker": "WEC",
-    "next_earnings_ts": "2026-08-11T12:00:00"
+    "next_earnings_ts": "2026-07-29",
+    "earnings_datetime_utc": "2026-07-29T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-29",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.072223+00:00"
   },
   {
     "ticker": "WFC",
@@ -1953,7 +3463,12 @@
   },
   {
     "ticker": "WELL",
-    "next_earnings_ts": "2026-07-31T16:00:00"
+    "next_earnings_ts": "2026-07-27",
+    "earnings_datetime_utc": "2026-07-27T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-27",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:47.931859+00:00"
   },
   {
     "ticker": "WST",
@@ -1961,11 +3476,21 @@
   },
   {
     "ticker": "WDC",
-    "next_earnings_ts": "2026-08-12T16:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.384541+00:00"
   },
   {
     "ticker": "WY",
-    "next_earnings_ts": "2026-08-14T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.189433+00:00"
   },
   {
     "ticker": "WSM",
@@ -1973,11 +3498,21 @@
   },
   {
     "ticker": "WMB",
-    "next_earnings_ts": "2026-08-18T12:00:00"
+    "next_earnings_ts": "2026-08-03",
+    "earnings_datetime_utc": "2026-08-03T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-03",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.297173+00:00"
   },
   {
     "ticker": "WTW",
-    "next_earnings_ts": "2026-08-14T16:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.187995+00:00"
   },
   {
     "ticker": "WDAY",
@@ -1985,30 +3520,65 @@
   },
   {
     "ticker": "WYNN",
-    "next_earnings_ts": "2026-08-08T16:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T16:00:00+00:00",
+    "report_time_local": "time-after-hours",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-after-hours",
+    "fetched_at": "2026-07-27T00:00:48.337716+00:00"
   },
   {
     "ticker": "XEL",
-    "next_earnings_ts": "2026-08-06T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.185604+00:00"
   },
   {
     "ticker": "XYL",
-    "next_earnings_ts": "2026-08-13T12:00:00"
+    "next_earnings_ts": "2026-07-28",
+    "earnings_datetime_utc": "2026-07-28T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-28",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:47.978637+00:00"
   },
   {
     "ticker": "YUM",
-    "next_earnings_ts": "2026-08-05T12:00:00"
+    "next_earnings_ts": "2026-07-30",
+    "earnings_datetime_utc": "2026-07-30T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-07-30",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.186380+00:00"
   },
   {
     "ticker": "ZBRA",
-    "next_earnings_ts": "2026-08-24T12:00:00"
+    "next_earnings_ts": "2026-08-04",
+    "earnings_datetime_utc": "2026-08-04T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-04",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.337281+00:00"
   },
   {
     "ticker": "ZBH",
-    "next_earnings_ts": "2026-08-22T12:00:00"
+    "next_earnings_ts": "2026-08-05",
+    "earnings_datetime_utc": "2026-08-05T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-05",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.390095+00:00"
   },
   {
     "ticker": "ZTS",
-    "next_earnings_ts": "2026-08-08T12:00:00"
+    "next_earnings_ts": "2026-08-06",
+    "earnings_datetime_utc": "2026-08-06T08:00:00+00:00",
+    "report_time_local": "time-pre-market",
+    "earnings_date": "2026-08-06",
+    "call_time": "time-pre-market",
+    "fetched_at": "2026-07-27T00:00:48.441397+00:00"
   }
 ]
