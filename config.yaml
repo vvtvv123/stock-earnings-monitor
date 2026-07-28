@@ -4,8 +4,8 @@ history:
 alerts:
   path: data/alerts.jsonl
 
-edgar:
-  cik_map_path: data/cik_tickers.json
+# EPS and revenue actuals come from Finnhub's earnings calendar API.
+# Set the FINNHUB_API_KEY environment variable -- do not put the key here.
 
 scorer:
   min_eps_growth_pct: 5.0

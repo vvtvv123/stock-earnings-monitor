@@ -1,6 +1,6 @@
 # Stock Earnings Monitor
 
-Poll the NASDAQ earnings calendar for reports as they land, score each one's
+Poll the Finnhub earnings calendar for reports as they land, score each one's
 EPS and revenue against that same company's own last reported quarter, and
 send a Telegram alert when growth clears the configured threshold.
 
@@ -13,12 +13,11 @@ are required.
 ## How scoring works
 
 There are no analyst estimates or watchlists involved. When a ticker's actual
-EPS shows up on the NASDAQ calendar:
+EPS shows up on the Finnhub earnings calendar:
 
 1. Look up that ticker's most recently recorded actual (from
    `data/earnings_history.jsonl`) as the growth baseline.
-2. Pull the matching quarterly revenue figure from SEC EDGAR (NASDAQ's free
-   calendar endpoint doesn't provide revenue at all).
+2. Read the actual EPS and revenue directly from the same Finnhub row.
 3. Compute EPS growth % and revenue growth % vs. that prior period.
 4. If both clear the thresholds in `config.yaml`, append an alert and send it
    to Telegram immediately.
@@ -28,14 +27,17 @@ EPS shows up on the NASDAQ calendar:
 A ticker's very first recorded report has no baseline, so it's stored but
 never triggers an alert.
 
-### Known limitation: revenue can lag or be missing
+Finnhub was chosen over NASDAQ's free calendar endpoint because NASDAQ (a)
+has no revenue field at all and (b) lags noticeably in posting actual EPS —
+verified live: on one test date NASDAQ still showed 0/71 scheduled reports
+as posted, while Finnhub already had actuals for 52 of them.
 
-EDGAR filings sometimes post a day or two after the earnings release, and
-foreign private issuers (e.g. SAP, TotalEnergies) file 20-F, not 10-Q/10-K,
-so they never get a revenue figure from this source. When revenue is
-unavailable, the revenue-growth check simply can't pass, so no alert fires
-for that report even if EPS looked strong. Check `logs/run.jsonl` for
-`monitor_revenue_unavailable` events.
+### Known limitation: revenue can still be missing
+
+Finnhub doesn't have revenue for every filer (e.g. some foreign private
+issuers). When revenue is unavailable, the revenue-growth check simply can't
+pass, so no alert fires for that report even if EPS looked strong. Check
+`logs/run.jsonl` for `monitor_revenue_unavailable` events.
 
 ## Setup
 
@@ -44,6 +46,7 @@ cd ~/stock-earnings-monitor
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+export FINNHUB_API_KEY=your_key_here   # free tier at finnhub.io -- never commit this
 ```
 
 ## Usage
@@ -66,6 +69,7 @@ Cron:
 
 ```bash
 # list upcoming reports over the next N days, purely for a human to glance at
+# (still reads NASDAQ's calendar -- fine for a schedule preview, just not for actuals)
 python3 src/watcher.py --once --lookahead-days 7
 ```
 
@@ -106,6 +110,9 @@ Key events:
 
 `requirements.txt`:
 - `pyyaml`
+
+Also requires the `FINNHUB_API_KEY` environment variable (free tier at
+finnhub.io).
 
 ## Agent rules
 
