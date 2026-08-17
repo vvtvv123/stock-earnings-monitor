@@ -40,9 +40,17 @@ class FinnhubRowTests(TestCase):
 
 
 class ScorerTests(TestCase):
+    # Explicit min_*_growth_pct throughout so these stay correct regardless
+    # of scorer.DEFAULT_MIN_*_GROWTH_PCT's actual value.
+
     def test_alert_when_both_grow_past_threshold(self):
         result = scorer.score_growth(
-            eps_actual=2.1, eps_prior=2.0, revenue_actual=110.0, revenue_prior=100.0
+            eps_actual=2.2,
+            eps_prior=2.0,
+            revenue_actual=110.0,
+            revenue_prior=100.0,
+            min_eps_growth_pct=10.0,
+            min_revenue_growth_pct=10.0,
         )
         self.assertTrue(result["eps_growth_ok"])
         self.assertTrue(result["revenue_growth_ok"])
@@ -50,7 +58,12 @@ class ScorerTests(TestCase):
 
     def test_no_alert_when_eps_growth_below_threshold(self):
         result = scorer.score_growth(
-            eps_actual=2.01, eps_prior=2.0, revenue_actual=110.0, revenue_prior=100.0
+            eps_actual=2.01,
+            eps_prior=2.0,
+            revenue_actual=110.0,
+            revenue_prior=100.0,
+            min_eps_growth_pct=10.0,
+            min_revenue_growth_pct=10.0,
         )
         self.assertFalse(result["eps_growth_ok"])
         self.assertFalse(result["alert"])
@@ -61,7 +74,14 @@ class ScorerTests(TestCase):
         self.assertFalse(result["alert"])
 
     def test_no_alert_when_revenue_missing(self):
-        result = scorer.score_growth(eps_actual=2.1, eps_prior=2.0, revenue_actual=None, revenue_prior=100.0)
+        result = scorer.score_growth(
+            eps_actual=2.2,
+            eps_prior=2.0,
+            revenue_actual=None,
+            revenue_prior=100.0,
+            min_eps_growth_pct=10.0,
+            min_revenue_growth_pct=10.0,
+        )
         self.assertTrue(result["eps_growth_ok"])
         self.assertFalse(result["revenue_growth_ok"])
         self.assertFalse(result["alert"])
@@ -143,6 +163,8 @@ class MonitorRunTests(TestCase):
         cfg = {
             "history": {"path": str(history_path)},
             "alerts": {"path": str(alerts_path)},
+            # explicit thresholds so this test doesn't drift with scorer.DEFAULT_MIN_*_GROWTH_PCT
+            "scorer": {"min_eps_growth_pct": 5.0, "min_revenue_growth_pct": 1.0},
         }
         rc = monitor.run_once(cfg, date_override="2026-07-27")
         self.assertEqual(rc, 0)

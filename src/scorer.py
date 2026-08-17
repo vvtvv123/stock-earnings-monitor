@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from typing import Any
 
-DEFAULT_MIN_EPS_GROWTH_PCT = 5.0
-DEFAULT_MIN_REVENUE_GROWTH_PCT = 1.0
+DEFAULT_MIN_EPS_GROWTH_PCT = 10.0
+DEFAULT_MIN_REVENUE_GROWTH_PCT = 10.0
 
 
 def pct_change(actual: float | None, baseline: float | None) -> float | None:

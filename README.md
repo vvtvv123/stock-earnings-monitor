@@ -76,8 +76,8 @@ python3 src/watcher.py --once --lookahead-days 7
 ## Alert criteria
 
 Defaults in `config.yaml`:
-- EPS actual grows >= 5% vs. this ticker's last recorded actual
-- Revenue actual grows >= 1% vs. this ticker's last recorded actual
+- EPS actual grows >= 10% vs. this ticker's last recorded actual
+- Revenue actual grows >= 10% vs. this ticker's last recorded actual
 
 Both must pass. Tune via `config.yaml` (`scorer.min_eps_growth_pct`,
 `scorer.min_revenue_growth_pct`).

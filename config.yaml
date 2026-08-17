@@ -8,8 +8,8 @@ alerts:
 # Set the FINNHUB_API_KEY environment variable -- do not put the key here.
 
 scorer:
-  min_eps_growth_pct: 5.0
-  min_revenue_growth_pct: 1.0
+  min_eps_growth_pct: 10.0
+  min_revenue_growth_pct: 10.0
 
 telegram:
   chat_id: "8782198462"
