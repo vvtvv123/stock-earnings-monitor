@@ -90,7 +90,20 @@ is a standalone replay tool for resending everything currently in
 
 ```bash
 python3 src/alert_telegram.py --chat-id 8782198462
+python3 src/alert_telegram.py send --chat-id 8782198462 --alerts data/alerts.jsonl
 ```
+
+The same module can also send a **free-form message** to any Telegram chat,
+so other scripts (or yourself) can publish a note without going through the
+earnings pipeline:
+
+```bash
+python3 src/alert_telegram.py message --chat-id 8782198462 --message "System healthy"
+python3 src/alert_telegram.py --message "System healthy"               # top-level shorthand
+```
+
+`--chat-id` defaults to the `TELEGRAM_CHAT_ID` env var, then to the module's
+`DEFAULT_CHAT_ID`.
 
 ## Logs
 
@@ -105,6 +118,7 @@ Key events:
 - `monitor_first_record`
 - `monitor_revenue_unavailable`
 - `alert_send_done` / `alert_send_failed`
+- `message_send_done` / `message_send_failed`
 
 ## Requirements
 

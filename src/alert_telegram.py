@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -31,7 +32,12 @@ def format_alert_message(alert: dict[str, Any]) -> str:
 
 
 def send_telegram_message(chat_id: str, message: str) -> None:
-    subprocess.run(["hermes", "send", "telegram", chat_id, message], check=False)
+    # `hermes send` uses `--to platform:chat_id` with the message text as a
+    # positional argument (see `hermes send telegram --help`).
+    subprocess.run(
+        ["hermes", "send", "--to", f"telegram:{chat_id}", message],
+        check=False,
+    )
 
 
 def send_alert(alert: dict[str, Any], chat_id: str | None = None) -> bool:
@@ -70,19 +76,98 @@ def cmd_send(args: argparse.Namespace) -> int:
         return 0
     sent = sum(1 for a in alerts if send_alert(a, args.chat_id))
     print(f"alert_telegram: dispatched {sent}/{len(alerts)} messages")
-    log_event("alert_send_batch_done", dispatched=sent, total=len(alerts), alerts_path=args.alerts)
+    log_event(
+        "alert_send_batch_done",
+        dispatched=sent,
+        total=len(alerts),
+        alerts_path=args.alerts,
+    )
     return 0
 
 
+def cmd_message(args: argparse.Namespace) -> int:
+    """Send a free-form message to a Telegram chat.
+
+    Lets other scripts invoke this module to publish arbitrary text to
+    Telegram, e.g.::
+
+        python3 src/alert_telegram.py message --chat-id 123 --message "hello"
+
+    or via the shorter subcommand alias `msg`.
+    """
+    chat_id = args.chat_id or os.getenv("TELEGRAM_CHAT_ID", DEFAULT_CHAT_ID)
+    message = args.message
+    if not message:
+        print("alert_telegram: --message is required", file=sys.stderr)
+        return 2
+    try:
+        send_telegram_message(chat_id, message)
+        log_event("message_send_done", chat_id=chat_id, length=len(message))
+        print(f"alert_telegram: sent message to {chat_id}")
+        return 0
+    except Exception as exc:  # pragma: no cover
+        print(f"alert_telegram: message send failed for {chat_id}: {exc}", file=sys.stderr)
+        log_event("message_send_failed", chat_id=chat_id, error=str(exc))
+        return 1
+
+
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="resend earnings alerts from data/alerts.jsonl to Telegram")
+    parser = argparse.ArgumentParser(
+        description="send earnings alerts or free-form messages to Telegram"
+    )
+    # Optional top-level flags. These make the alert-replay command work
+    # without an explicit subcommand (backwards compatible with the original
+    # `python3 src/alert_telegram.py --chat-id ...` invocation).
     parser.add_argument("--alerts", default="data/alerts.jsonl")
-    parser.add_argument("--chat-id", default=os.getenv("TELEGRAM_CHAT_ID", DEFAULT_CHAT_ID))
+    parser.add_argument(
+        "--chat-id", default=os.getenv("TELEGRAM_CHAT_ID", DEFAULT_CHAT_ID)
+    )
+    parser.add_argument(
+        "--message",
+        help="if set, send this free-form text (equivalent to the "
+        "'message' subcommand) instead of replaying alerts",
+    )
+
+    sub = parser.add_subparsers(dest="command")
+
+    send_p = sub.add_parser("send", help="replay alerts from a JSONL file")
+    send_p.add_argument("--alerts", default="data/alerts.jsonl")
+    send_p.add_argument(
+        "--chat-id", default=os.getenv("TELEGRAM_CHAT_ID", DEFAULT_CHAT_ID)
+    )
+    send_p.set_defaults(func=cmd_send)
+
+    msg_p = sub.add_parser(
+        "message", aliases=["msg"], help="send a free-form message to a chat"
+    )
+    msg_p.add_argument(
+        "--chat-id", default=os.getenv("TELEGRAM_CHAT_ID", DEFAULT_CHAT_ID)
+    )
+    msg_p.add_argument(
+        "--message", required=True, help="text body of the message to send"
+    )
+    msg_p.set_defaults(func=cmd_message)
+
     return parser
 
 
-def main() -> int:
-    args = build_parser().parse_args()
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+
+    # Decide which handler to run:
+    #  - explicit subcommand (send/message) -> that subcommand's func
+    #  - top-level --message given           -> free-form message mode
+    #  - nothing special                     -> replay alerts (backwards compat)
+    func = getattr(args, "func", None)
+    if func is not None:
+        return func(args)
+
+    if args.message:
+        # Top-level --message: free-form message mode (chat_id resolved
+        # inside cmd_message from arg/env/DEFAULT).
+        return cmd_message(args)
+
     return cmd_send(args)
 
 
