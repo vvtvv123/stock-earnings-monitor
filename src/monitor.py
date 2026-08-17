@@ -17,6 +17,62 @@ from logging_utils import log_event
 ET = ZoneInfo("America/New_York")
 
 
+def _fmt_eps(value: float | None) -> str:
+    return f"${value:.2f}" if isinstance(value, (int, float)) else "n/a"
+
+
+def _fmt_money(value: float | None) -> str:
+    if not isinstance(value, (int, float)):
+        return "n/a"
+    abs_v = abs(value)
+    if abs_v >= 1_000_000_000:
+        return f"${value / 1_000_000_000:.2f}B"
+    if abs_v >= 1_000_000:
+        return f"${value / 1_000_000:.1f}M"
+    return f"${value:,.0f}"
+
+
+def _fmt_pct(value: float | None) -> str:
+    if not isinstance(value, (int, float)):
+        return "n/a"
+    return f"{'+' if value >= 0 else ''}{value:.1f}%"
+
+
+def _fmt_beat(pct: float | None) -> str:
+    if not isinstance(pct, (int, float)):
+        return "n/a"
+    label = "BEAT" if pct >= 0 else "MISS"
+    return f"{_fmt_pct(pct)} {label}"
+
+
+def _print_report_line(
+    ticker: str,
+    eps_actual: float | None,
+    eps_estimate: float | None,
+    revenue_actual: float | None,
+    revenue_estimate: float | None,
+    eps_growth_pct: float | None,
+    revenue_growth_pct: float | None,
+    is_alert: bool,
+) -> None:
+    eps_beat_pct = scorer.pct_change(eps_actual, eps_estimate)
+    revenue_beat_pct = scorer.pct_change(revenue_actual, revenue_estimate)
+    line = (
+        f"  {ticker:<6} "
+        f"EPS {_fmt_eps(eps_actual)} vs est {_fmt_eps(eps_estimate)} "
+        f"({_fmt_beat(eps_beat_pct)})  |  "
+        f"Revenue {_fmt_money(revenue_actual)} vs est {_fmt_money(revenue_estimate)} "
+        f"({_fmt_beat(revenue_beat_pct)})"
+    )
+    if eps_growth_pct is not None or revenue_growth_pct is not None:
+        line += (
+            f"  |  vs prior: EPS {_fmt_pct(eps_growth_pct)}, Revenue {_fmt_pct(revenue_growth_pct)}"
+        )
+    if is_alert:
+        line += "  *** ALERT ***"
+    print(line)
+
+
 def run_once(cfg: dict, date_override: str | None = None) -> int:
     today = date_override or datetime.now(ET).date().isoformat()
 
@@ -30,6 +86,9 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
     reported = [row for row in rows if finnhub_client.has_reported(row)]
     index = history.load_index(history_path)
 
+    if reported:
+        print(f"monitor: {len(reported)} reported today")
+
     new_alerts = []
     for row in reported:
         ticker = finnhub_client.row_symbol(row)
@@ -37,13 +96,39 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
             continue
         period_end = finnhub_client.row_period_end(row)
         period_key = period_end or today
-        if history.has_period(index, ticker, period_key):
-            continue
-
-        prior = history.latest_prior(index, ticker)
 
         eps_actual = finnhub_client.row_eps_actual(row)
+        eps_estimate = finnhub_client.row_eps_estimate(row)
         revenue_actual = finnhub_client.row_revenue_actual(row)
+        revenue_estimate = finnhub_client.row_revenue_estimate(row)
+
+        already_seen = history.has_period(index, ticker, period_key)
+        prior = None if already_seen else history.latest_prior(index, ticker)
+        result = None
+        if prior is not None:
+            result = scorer.score_growth(
+                eps_actual,
+                prior.get("eps_actual"),
+                revenue_actual,
+                prior.get("revenue_actual"),
+                min_eps_growth_pct=min_eps_growth,
+                min_revenue_growth_pct=min_revenue_growth,
+            )
+
+        _print_report_line(
+            ticker,
+            eps_actual,
+            eps_estimate,
+            revenue_actual,
+            revenue_estimate,
+            result["eps_growth_pct"] if result else None,
+            result["revenue_growth_pct"] if result else None,
+            is_alert=bool(result and result["alert"]),
+        )
+
+        if already_seen:
+            continue
+
         if revenue_actual is None:
             log_event("monitor_revenue_unavailable", ticker=ticker, reason="finnhub_no_revenue")
 
@@ -52,9 +137,9 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
             "report_date": today,
             "period_end": period_end,
             "eps_actual": eps_actual,
-            "eps_estimate": finnhub_client.row_eps_estimate(row),
+            "eps_estimate": eps_estimate,
             "revenue_actual": revenue_actual,
-            "revenue_estimate": finnhub_client.row_revenue_estimate(row),
+            "revenue_estimate": revenue_estimate,
             "fetched_at": datetime.now(ET).isoformat(),
         }
         history.append_record(record, history_path)
@@ -64,14 +149,6 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
             log_event("monitor_first_record", ticker=ticker, period=period_key)
             continue
 
-        result = scorer.score_growth(
-            eps_actual,
-            prior.get("eps_actual"),
-            revenue_actual,
-            prior.get("revenue_actual"),
-            min_eps_growth_pct=min_eps_growth,
-            min_revenue_growth_pct=min_revenue_growth,
-        )
         if result["alert"]:
             new_alerts.append(
                 {
@@ -94,7 +171,7 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
         for alert in new_alerts:
             alert_telegram.send_alert(alert, chat_id)
 
-    print(f"monitor: {len(reported)} reported today, {len(new_alerts)} alerts sent")
+    print(f"monitor: done -- {len(reported)} reported today, {len(new_alerts)} alerts sent")
     log_event(
         "monitor_run_done",
         date=today,
