@@ -8,6 +8,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import alert_telegram
+import edgar
 import finnhub_client
 import history
 import scorer
@@ -78,6 +79,7 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
 
     history_path = Path(cfg.get("history", {}).get("path", "data/earnings_history.jsonl"))
     alerts_path = Path(cfg.get("alerts", {}).get("path", "data/alerts.jsonl"))
+    cik_map_path = Path(cfg.get("edgar", {}).get("cik_map_path", "data/cik_tickers.json"))
     min_eps_growth = cfg.get("scorer", {}).get("min_eps_growth_pct", scorer.DEFAULT_MIN_EPS_GROWTH_PCT)
     min_revenue_growth = cfg.get("scorer", {}).get("min_revenue_growth_pct", scorer.DEFAULT_MIN_REVENUE_GROWTH_PCT)
     chat_id = cfg.get("telegram", {}).get("chat_id")
@@ -87,6 +89,7 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
     rows = finnhub_client.fetch_calendar(today)
     reported = [row for row in rows if finnhub_client.has_reported(row)]
     index = history.load_index(history_path)
+    cik_map = edgar.load_cik_map(cik_map_path) if reported else {}
 
     if reported:
         print(f"monitor: {len(reported)} reported today")
@@ -105,9 +108,13 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
             log_event("monitor_row_skipped", ticker=ticker, period=period_key, reason="already_recorded")
             continue
 
-        prior = history.latest_prior(index, ticker)
-        has_prior = prior is not None
-        log_event("monitor_row_processed", ticker=ticker, period=period_key, has_prior=has_prior)
+        cik = edgar.lookup_cik(ticker, cik_map)
+        prior = edgar.year_ago_quarter(cik, today) if cik else None
+        if cik is None:
+            log_event("monitor_no_cik_mapping", ticker=ticker)
+        elif prior is None:
+            log_event("monitor_year_ago_quarter_not_found", ticker=ticker, as_of=today)
+        log_event("monitor_row_processed", ticker=ticker, period=period_key, has_prior=prior is not None)
 
         eps_actual = finnhub_client.row_eps_actual(row)
         eps_estimate = finnhub_client.row_eps_estimate(row)
@@ -130,8 +137,10 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
                 period=period_key,
                 eps_actual=eps_actual,
                 eps_prior=prior.get("eps_actual"),
+                eps_prior_period=prior.get("eps_period_end"),
                 revenue_actual=revenue_actual,
                 revenue_prior=prior.get("revenue_actual"),
+                revenue_prior_period=prior.get("revenue_period_end"),
                 alert=result["alert"],
                 eps_growth_pct=result.get("eps_growth_pct"),
                 revenue_growth_pct=result.get("revenue_growth_pct"),
@@ -165,7 +174,7 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
         index.setdefault(ticker, []).append(record)
 
         if prior is None:
-            log_event("monitor_first_record", ticker=ticker, period=period_key)
+            log_event("monitor_no_baseline", ticker=ticker, period=period_key)
             continue
 
         if result["alert"]:

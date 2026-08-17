@@ -1,8 +1,10 @@
 # Stock Earnings Monitor
 
 Poll the Finnhub earnings calendar for reports as they land, score each one's
-EPS and revenue against that same company's own last reported quarter, and
-send a Telegram alert when growth clears the configured threshold.
+EPS and revenue against the same company's actual results for the same
+fiscal quarter one year ago (pulled fresh from SEC EDGAR, not locally
+accumulated), and send a Telegram alert when growth clears the configured
+threshold.
 
 ## What this repo does
 
@@ -15,29 +17,50 @@ are required.
 There are no analyst estimates or watchlists involved. When a ticker's actual
 EPS shows up on the Finnhub earnings calendar:
 
-1. Look up that ticker's most recently recorded actual (from
-   `data/earnings_history.jsonl`) as the growth baseline.
-2. Read the actual EPS and revenue directly from the same Finnhub row.
-3. Compute EPS growth % and revenue growth % vs. that prior period.
+1. Read the actual EPS and revenue directly from the Finnhub row.
+2. Look up the ticker's SEC CIK (cached `data/cik_tickers.json`, refreshed
+   from SEC's official ticker map on first use) and fetch its EDGAR
+   `companyfacts`, picking out the single-quarter EPS and revenue figures
+   whose period end is closest to 365 days before today (within a 45-day
+   tolerance for fiscal-calendar drift) — i.e. the *same quarter, one year
+   ago*, fetched live rather than read from anything we've stored ourselves.
+3. Compute EPS growth % and revenue growth % vs. that year-ago quarter.
 4. If both clear the thresholds in `config.yaml`, append an alert and send it
    to Telegram immediately.
-5. Always record the new actual to `data/earnings_history.jsonl`, whether or
-   not it triggered an alert, so it becomes the baseline for next time.
+5. Record the new actual to `data/earnings_history.jsonl` either way, purely
+   as a dedup/audit log so the same report isn't re-scored on a later run —
+   it is **not** used as the growth baseline.
 
-A ticker's very first recorded report has no baseline, so it's stored but
-never triggers an alert.
+This replaced an earlier design that scored against whatever this system had
+itself previously recorded locally. That meant a ticker needed to report
+twice *after* the pipeline started running before it could ever be scored —
+a full quarter's wait with almost nothing scoreable in the meantime. Sourcing
+the year-ago quarter fresh from EDGAR means (almost) every report is
+scoreable from day one.
 
-Finnhub was chosen over NASDAQ's free calendar endpoint because NASDAQ (a)
-has no revenue field at all and (b) lags noticeably in posting actual EPS —
-verified live: on one test date NASDAQ still showed 0/71 scheduled reports
-as posted, while Finnhub already had actuals for 52 of them.
+Finnhub was chosen for the current-quarter actuals over NASDAQ's free
+calendar endpoint because NASDAQ (a) has no revenue field at all and (b) lags
+noticeably in posting actual EPS — verified live: on one test date NASDAQ
+still showed 0/71 scheduled reports as posted, while Finnhub already had
+actuals for 52 of them. Finnhub's own historical endpoints turned out to be
+free-tier-limited in a different way (see below), which is why the year-ago
+baseline comes from EDGAR instead.
 
-### Known limitation: revenue can still be missing
+### Known limitations
 
-Finnhub doesn't have revenue for every filer (e.g. some foreign private
-issuers). When revenue is unavailable, the revenue-growth check simply can't
-pass, so no alert fires for that report even if EPS looked strong. Check
-`logs/run.jsonl` for `monitor_revenue_unavailable` events.
+- **No year-ago baseline for some tickers.** EDGAR's `companyfacts` only has
+  data for US GAAP filers; some foreign private issuers file IFRS instead
+  (no `us-gaap` facts at all), and some filers only submit annual figures
+  with no quarterly breakdown to compare against. In both cases, no alert
+  fires for that report even if EPS looked strong — this is a deliberate
+  "don't fabricate a mismatched comparison" choice, not a bug.
+- **Revenue can be structurally missing for a whole sector.** EDGAR's
+  ASC 606 contract-revenue tag doesn't apply to interest income, so banks
+  and other financials (e.g. JPM) typically have no revenue figure at all —
+  they can pass the EPS check but can never pass the revenue check.
+- Check `logs/run.jsonl` for `monitor_no_cik_mapping`,
+  `monitor_year_ago_quarter_not_found`, and `monitor_revenue_unavailable`
+  events to see which tickers this affected on a given run.
 
 ## Setup
 
@@ -76,8 +99,8 @@ python3 src/watcher.py --once --lookahead-days 7
 ## Alert criteria
 
 Defaults in `config.yaml`:
-- EPS actual grows >= 10% vs. this ticker's last recorded actual
-- Revenue actual grows >= 10% vs. this ticker's last recorded actual
+- EPS actual grows >= 10% vs. the same quarter one year ago
+- Revenue actual grows >= 10% vs. the same quarter one year ago
 
 Both must pass. Tune via `config.yaml` (`scorer.min_eps_growth_pct`,
 `scorer.min_revenue_growth_pct`).
@@ -115,8 +138,10 @@ tail -n 50 logs/run.jsonl | python3 -m json.tool --no-ensure-ascii
 
 Key events:
 - `monitor_run_done`
-- `monitor_first_record`
-- `monitor_revenue_unavailable`
+- `monitor_no_baseline` — no EDGAR year-ago quarter was found for this report
+- `monitor_no_cik_mapping` — ticker isn't in SEC's ticker->CIK map
+- `monitor_year_ago_quarter_not_found` — has a CIK, but no matching quarter within tolerance
+- `monitor_revenue_unavailable` — Finnhub didn't have revenue for this report
 - `alert_send_done` / `alert_send_failed`
 - `message_send_done` / `message_send_failed`
 
