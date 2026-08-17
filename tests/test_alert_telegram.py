@@ -88,6 +88,45 @@ class MessageSendTests(TestCase):
         self.assertTrue(any(e["event"] == "message_send_done" for e in entries))
 
 
+class FormatAlertMessageTests(TestCase):
+    def test_growth_alert_shows_percentages(self):
+        text = alert_telegram.format_alert_message(
+            {
+                "ticker": "AAPL",
+                "report_date": "2026-07-30",
+                "eps_actual": 1.65,
+                "eps_prior": 1.5,
+                "eps_growth_pct": 10.0,
+                "revenue_actual": 95.0,
+                "revenue_prior": 90.0,
+                "revenue_growth_pct": 5.6,
+            }
+        )
+        self.assertIn("Earnings growth alert", text)
+        self.assertIn("10.0%", text)
+
+    def test_turned_profitable_alert_does_not_show_a_percentage(self):
+        # Real case: LFWD-style crossing, where a % would be meaningless
+        # (or actively misleading -- see scorer.score_growth's docstring).
+        text = alert_telegram.format_alert_message(
+            {
+                "ticker": "LFWD",
+                "report_date": "2026-08-14",
+                "alert_type": "turned_profitable",
+                "eps_actual": 0.20,
+                "eps_prior": -0.58,
+                "revenue_actual": 6620000,
+                "revenue_prior": 5724000,
+            }
+        )
+        import re
+
+        self.assertIn("Turned profitable alert", text)
+        self.assertIsNone(re.search(r"\d[\d.]*%", text))  # no numeric growth % anywhere
+        self.assertIn("-0.58", text)
+        self.assertIn("0.2", text)
+
+
 class SendSubcommandTests(TestCase):
     def setUp(self):
         self.calls: list[tuple[str, str]] = []

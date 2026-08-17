@@ -87,6 +87,57 @@ class ScorerTests(TestCase):
         self.assertFalse(result["revenue_growth_ok"])
         self.assertFalse(result["alert"])
 
+    def test_no_alert_when_loss_widens_from_negative_baseline(self):
+        # Real case: LFWD reported eps -1.46 vs. a year-ago -0.58. Naive
+        # (actual/prior - 1)*100 gives +151.7% (negative/negative -> positive)
+        # even though the loss got WORSE -- must never count as growth_ok.
+        result = scorer.score_growth(
+            eps_actual=-1.46,
+            eps_prior=-0.58,
+            revenue_actual=6620000.0,
+            revenue_prior=5724000.0,
+            min_eps_growth_pct=10.0,
+            min_revenue_growth_pct=10.0,
+        )
+        self.assertAlmostEqual(result["eps_growth_pct"], 151.7, places=0)  # the raw number is real...
+        self.assertFalse(result["eps_growth_ok"])  # ...but must not count as growth
+        self.assertFalse(result["alert"])
+        self.assertFalse(result["eps_turned_profitable"])  # still a loss, not a crossing
+
+    def test_turned_profitable_when_loss_crosses_to_profit(self):
+        result = scorer.score_growth(
+            eps_actual=0.20,
+            eps_prior=-0.58,
+            revenue_actual=95.0,
+            revenue_prior=90.0,
+            min_eps_growth_pct=10.0,
+            min_revenue_growth_pct=10.0,
+        )
+        self.assertTrue(result["eps_turned_profitable"])
+        self.assertFalse(result["eps_growth_ok"])  # % vs a negative baseline is never trusted
+        self.assertFalse(result["alert"])  # this is a distinct signal, not the growth alert
+
+    def test_no_growth_ok_when_prior_is_zero(self):
+        result = scorer.score_growth(eps_actual=0.10, eps_prior=0.0, revenue_actual=95.0, revenue_prior=90.0)
+        self.assertIsNone(result["eps_growth_pct"])  # pct_change already guards div-by-zero
+        self.assertFalse(result["eps_growth_ok"])  # can't express "growth" as a % from a zero baseline
+        self.assertTrue(result["eps_turned_profitable"])  # breakeven -> profitable is a real crossing
+
+    def test_is_plausible_pair_flags_scale_mismatch(self):
+        # Real case: PLXS's EDGAR revenue tag returned ~$1.02M for a quarter
+        # where the true figure was ~$1.3B (~1280x) -- must be rejected.
+        self.assertFalse(scorer.is_plausible_pair(1304778000.0, 1018308.0))
+
+    def test_is_plausible_pair_allows_large_but_sane_growth(self):
+        # A real turnaround swing (e.g. small biotech) can legitimately be
+        # large without being a data artifact.
+        self.assertTrue(scorer.is_plausible_pair(10.0, 1.0))  # 10x, within default ratio of 20
+
+    def test_is_plausible_pair_true_when_nothing_to_compare(self):
+        self.assertTrue(scorer.is_plausible_pair(None, 1.0))
+        self.assertTrue(scorer.is_plausible_pair(1.0, None))
+        self.assertTrue(scorer.is_plausible_pair(1.0, 0.0))
+
 
 class HistoryTests(TestCase):
     def setUp(self):
@@ -244,6 +295,98 @@ class MonitorRunTests(TestCase):
         cfg = {"history": {"path": str(history_path)}, "alerts": {"path": str(alerts_path)}}
         monitor.run_once(cfg, date_override="2026-07-27")
         self.assertEqual(sent, [])
+
+    def test_run_once_skips_scoring_on_abnormal_growth(self):
+        # Regression test using the real numbers found live for PLXS on
+        # 2026-07-29: current revenue ~$1.3B, EDGAR "prior" revenue ~$1.02M
+        # (a mis-scaled/mis-tagged EDGAR fact, not real 128,032% growth).
+        workspace = Path(tempfile.mkdtemp(prefix="stock-monitor-test-"))
+        history_path = workspace / "earnings_history.jsonl"
+        alerts_path = workspace / "alerts.jsonl"
+
+        monitor.finnhub_client.fetch_calendar = lambda date_str, timeout=20: [
+            {
+                "symbol": "PLXS",
+                "quarter": 3,
+                "year": 2026,
+                "epsActual": 2.32,
+                "epsEstimate": 2.1663,
+                "revenueActual": 1304778000.0,
+                "revenueEstimate": 1254072996.0,
+            }
+        ]
+        monitor.edgar.load_cik_map = lambda path=None: {"PLXS": "0000785786"}
+        monitor.edgar.year_ago_quarter = lambda cik, as_of: {
+            "eps_actual": 1.64,
+            "eps_period_end": "2025-06-28",
+            "revenue_actual": 1018308.0,
+            "revenue_period_end": "2025-06-28",
+        }
+        sent = []
+        monitor.alert_telegram.send_alert = lambda alert, chat_id=None: sent.append(alert) or True
+
+        cfg = {"history": {"path": str(history_path)}, "alerts": {"path": str(alerts_path)}}
+        monitor.run_once(cfg, date_override="2026-07-29")
+        self.assertEqual(sent, [])  # must not fire a false "growth" alert
+        self.assertFalse(alerts_path.exists())
+
+    def test_run_once_no_growth_alert_for_widening_loss(self):
+        # Regression test using the real numbers found live for LFWD on
+        # 2026-08-14: eps -1.46 vs. year-ago -0.58. The naive percentage
+        # (-1.46/-0.58 - 1)*100 = +151.7%, which would wrongly pass a
+        # >=10% growth threshold even though the loss got worse.
+        workspace = Path(tempfile.mkdtemp(prefix="stock-monitor-test-"))
+        history_path = workspace / "earnings_history.jsonl"
+        alerts_path = workspace / "alerts.jsonl"
+
+        monitor.finnhub_client.fetch_calendar = lambda date_str, timeout=20: [
+            {
+                "symbol": "LFWD",
+                "quarter": 2,
+                "year": 2026,
+                "epsActual": -1.46,
+                "epsEstimate": -1.3668,
+                "revenueActual": 6620000.0,
+                "revenueEstimate": 6661110.0,
+            }
+        ]
+        monitor.edgar.load_cik_map = lambda path=None: {"LFWD": "0001607962"}
+        monitor.edgar.year_ago_quarter = lambda cik, as_of: {
+            "eps_actual": -0.58,
+            "eps_period_end": "2025-06-30",
+            "revenue_actual": 5724000.0,
+            "revenue_period_end": "2025-06-30",
+        }
+        sent = []
+        monitor.alert_telegram.send_alert = lambda alert, chat_id=None: sent.append(alert) or True
+
+        cfg = {"history": {"path": str(history_path)}, "alerts": {"path": str(alerts_path)}}
+        monitor.run_once(cfg, date_override="2026-08-14")
+        self.assertEqual(sent, [])  # a worsening loss must never fire a "growth" alert
+
+    def test_run_once_sends_turned_profitable_alert(self):
+        workspace = Path(tempfile.mkdtemp(prefix="stock-monitor-test-"))
+        history_path = workspace / "earnings_history.jsonl"
+        alerts_path = workspace / "alerts.jsonl"
+
+        monitor.finnhub_client.fetch_calendar = lambda date_str, timeout=20: [
+            {"symbol": "TURNCO", "quarter": 2, "year": 2026, "epsActual": 0.20, "revenueActual": 95.0}
+        ]
+        monitor.edgar.load_cik_map = lambda path=None: {"TURNCO": "0000000002"}
+        monitor.edgar.year_ago_quarter = lambda cik, as_of: {
+            "eps_actual": -0.58,
+            "eps_period_end": "2025-Q2",
+            "revenue_actual": 90.0,
+            "revenue_period_end": "2025-Q2",
+        }
+        sent = []
+        monitor.alert_telegram.send_alert = lambda alert, chat_id=None: sent.append(alert) or True
+
+        cfg = {"history": {"path": str(history_path)}, "alerts": {"path": str(alerts_path)}}
+        monitor.run_once(cfg, date_override="2026-08-14")
+        self.assertEqual(len(sent), 1)
+        self.assertEqual(sent[0]["ticker"], "TURNCO")
+        self.assertEqual(sent[0]["alert_type"], "turned_profitable")
 
     def test_run_once_no_alert_when_no_cik_mapping(self):
         workspace = Path(tempfile.mkdtemp(prefix="stock-monitor-test-"))

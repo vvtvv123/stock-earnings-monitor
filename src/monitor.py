@@ -55,6 +55,7 @@ def _print_report_line(
     eps_growth_pct: float | None,
     revenue_growth_pct: float | None,
     is_alert: bool,
+    turned_profitable: bool = False,
 ) -> None:
     eps_beat_pct = scorer.pct_change(eps_actual, eps_estimate)
     revenue_beat_pct = scorer.pct_change(revenue_actual, revenue_estimate)
@@ -71,6 +72,8 @@ def _print_report_line(
         )
     if is_alert:
         line += "  *** ALERT ***"
+    elif turned_profitable:
+        line += "  *** TURNED PROFITABLE ***"
     print(line)
 
 
@@ -121,6 +124,28 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
         revenue_actual = finnhub_client.row_revenue_actual(row)
         revenue_estimate = finnhub_client.row_revenue_estimate(row)
 
+        if prior is not None:
+            eps_plausible = scorer.is_plausible_pair(eps_actual, prior.get("eps_actual"))
+            revenue_plausible = scorer.is_plausible_pair(revenue_actual, prior.get("revenue_actual"))
+            if not (eps_plausible and revenue_plausible):
+                log_event(
+                    "monitor_abnormal_growth_detected",
+                    ticker=ticker,
+                    period=period_key,
+                    eps_actual=eps_actual,
+                    eps_prior=prior.get("eps_actual"),
+                    eps_prior_period=prior.get("eps_period_end"),
+                    revenue_actual=revenue_actual,
+                    revenue_prior=prior.get("revenue_actual"),
+                    revenue_prior_period=prior.get("revenue_period_end"),
+                )
+                print(
+                    f"  {ticker:<6} *** DATA ANOMALY: EDGAR year-ago baseline looks mis-scaled "
+                    f"(eps {prior.get('eps_actual')!r}, revenue {prior.get('revenue_actual')!r}) "
+                    f"-- skipped scoring, see logs ***"
+                )
+                prior = None  # don't score against a baseline we don't trust
+
         result = None
         if prior is not None:
             result = scorer.score_growth(
@@ -155,6 +180,7 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
             result["eps_growth_pct"] if result else None,
             result["revenue_growth_pct"] if result else None,
             is_alert=bool(result and result["alert"]),
+            turned_profitable=bool(result and result["eps_turned_profitable"]),
         )
 
         if revenue_actual is None:
@@ -187,6 +213,24 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
                     "eps_prior": prior.get("eps_actual"),
                     "revenue_actual": revenue_actual,
                     "revenue_prior": prior.get("revenue_actual"),
+                    "alert_type": "growth",
+                    **result,
+                }
+            )
+        elif result["eps_turned_profitable"]:
+            # Mutually exclusive with the growth alert by construction:
+            # eps_turned_profitable requires eps_prior <= 0, which forces
+            # eps_growth_ok (and therefore "alert") False.
+            new_alerts.append(
+                {
+                    "ticker": ticker,
+                    "report_date": today,
+                    "period_end": period_end,
+                    "eps_actual": eps_actual,
+                    "eps_prior": prior.get("eps_actual"),
+                    "revenue_actual": revenue_actual,
+                    "revenue_prior": prior.get("revenue_actual"),
+                    "alert_type": "turned_profitable",
                     **result,
                 }
             )

@@ -18,6 +18,17 @@ def _fmt_pct(value: Any) -> str:
 
 
 def format_alert_message(alert: dict[str, Any]) -> str:
+    if alert.get("alert_type") == "turned_profitable":
+        return "\n".join(
+            [
+                "Turned profitable alert",
+                f"- ticker: {alert.get('ticker', '?')}",
+                f"- period: {alert.get('period_end') or alert.get('report_date')}",
+                f"- EPS: {alert.get('eps_prior')} (year ago, a loss) -> {alert.get('eps_actual')} (now profitable)",
+                f"- Revenue actual/prior: {alert.get('revenue_actual')} / {alert.get('revenue_prior')}",
+                "- note: this crossed from a loss to a profit, so it isn't expressed as a growth %",
+            ]
+        )
     return "\n".join(
         [
             "Earnings growth alert",

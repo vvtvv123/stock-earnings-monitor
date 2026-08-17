@@ -24,10 +24,17 @@ EPS shows up on the Finnhub earnings calendar:
    whose period end is closest to 365 days before today (within a 45-day
    tolerance for fiscal-calendar drift) — i.e. the *same quarter, one year
    ago*, fetched live rather than read from anything we've stored ourselves.
-3. Compute EPS growth % and revenue growth % vs. that year-ago quarter.
-4. If both clear the thresholds in `config.yaml`, append an alert and send it
-   to Telegram immediately.
-5. Record the new actual to `data/earnings_history.jsonl` either way, purely
+3. Sanity-check the match (`scorer.is_plausible_pair`): reject it if it
+   implies more than a 20x swing in either direction — that's almost always
+   a mis-scaled/mis-tagged EDGAR fact, not real growth (see below).
+4. Compute EPS growth % and revenue growth % vs. that year-ago quarter. A
+   negative or zero prior is never trusted for a percentage (see below) —
+   only `prior > 0` can produce `*_growth_ok`.
+5. If both clear the thresholds in `config.yaml`, append an alert and send it
+   to Telegram immediately. Separately, a company crossing from a prior-year
+   loss to a current profit fires a distinct **turned-profitable** alert,
+   since that's a real, notable event that isn't expressible as a percentage.
+6. Record the new actual to `data/earnings_history.jsonl` either way, purely
    as a dedup/audit log so the same report isn't re-scored on a later run —
    it is **not** used as the growth baseline.
 
@@ -46,7 +53,7 @@ actuals for 52 of them. Finnhub's own historical endpoints turned out to be
 free-tier-limited in a different way (see below), which is why the year-ago
 baseline comes from EDGAR instead.
 
-### Known limitations
+### Known limitations (all found live, not hypothetical)
 
 - **No year-ago baseline for some tickers.** EDGAR's `companyfacts` only has
   data for US GAAP filers; some foreign private issuers file IFRS instead
@@ -58,9 +65,28 @@ baseline comes from EDGAR instead.
   ASC 606 contract-revenue tag doesn't apply to interest income, so banks
   and other financials (e.g. JPM) typically have no revenue figure at all —
   they can pass the EPS check but can never pass the revenue check.
+- **EDGAR occasionally returns a mis-scaled figure.** Confirmed live on
+  `PLXS`: its EDGAR revenue tag for the year-ago quarter came back
+  **$1,018,308** against a true figure near **$1.3B** (~1280x off) — some
+  filers tag a sub-segment or line item under the same concept the plain
+  `companyfacts` API can't distinguish from consolidated revenue. The 20x
+  plausibility guard rejects matches like this, logged as
+  `monitor_abnormal_growth_detected`, and 118 more were caught this way in a
+  20-day backtest. The guard doesn't catch a *genuine* but misleading
+  low-base swing (e.g. EPS $0.02 -> $0.34 is a real +1600%, not a data bug,
+  but also not durable 17x earnings growth) — that one needs a human glance.
+- **A percentage from a negative baseline lies.** Confirmed live on `LFWD`:
+  EPS went from -$0.58 to -$1.46 (the loss got *worse*), and the naive
+  `(actual/prior - 1) * 100` formula gives **+151.7%** since
+  negative-over-negative is positive. `score_growth` now requires
+  `prior > 0` before trusting any percentage; a loss that widens, or that
+  narrows without crossing into profit, never counts as growth. A prior-loss
+  crossing into a current profit fires the separate turned-profitable alert
+  instead.
 - Check `logs/run.jsonl` for `monitor_no_cik_mapping`,
-  `monitor_year_ago_quarter_not_found`, and `monitor_revenue_unavailable`
-  events to see which tickers this affected on a given run.
+  `monitor_year_ago_quarter_not_found`, `monitor_abnormal_growth_detected`,
+  and `monitor_revenue_unavailable` events to see which tickers this
+  affected on a given run.
 
 ## Setup
 
@@ -98,12 +124,18 @@ python3 src/watcher.py --once --lookahead-days 7
 
 ## Alert criteria
 
-Defaults in `config.yaml`:
-- EPS actual grows >= 10% vs. the same quarter one year ago
-- Revenue actual grows >= 10% vs. the same quarter one year ago
+Two distinct alert types, both from `src/scorer.py`:
+
+**Growth alert** — defaults in `config.yaml`:
+- EPS actual grows >= 10% vs. the same quarter one year ago (year-ago EPS must be positive)
+- Revenue actual grows >= 10% vs. the same quarter one year ago (year-ago revenue must be positive)
 
 Both must pass. Tune via `config.yaml` (`scorer.min_eps_growth_pct`,
 `scorer.min_revenue_growth_pct`).
+
+**Turned-profitable alert** — fires instead of the growth alert when EPS
+crosses from a year-ago loss (or exactly breakeven) to a current profit.
+Not percentage-based, and not gated by the revenue check.
 
 ## Telegram delivery
 
@@ -141,6 +173,7 @@ Key events:
 - `monitor_no_baseline` — no EDGAR year-ago quarter was found for this report
 - `monitor_no_cik_mapping` — ticker isn't in SEC's ticker->CIK map
 - `monitor_year_ago_quarter_not_found` — has a CIK, but no matching quarter within tolerance
+- `monitor_abnormal_growth_detected` — EDGAR match rejected by the 20x plausibility guard
 - `monitor_revenue_unavailable` — Finnhub didn't have revenue for this report
 - `alert_send_done` / `alert_send_failed`
 - `message_send_done` / `message_send_failed`
