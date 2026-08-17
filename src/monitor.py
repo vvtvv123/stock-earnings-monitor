@@ -82,6 +82,8 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
     min_revenue_growth = cfg.get("scorer", {}).get("min_revenue_growth_pct", scorer.DEFAULT_MIN_REVENUE_GROWTH_PCT)
     chat_id = cfg.get("telegram", {}).get("chat_id")
 
+    log_event("monitor_run_start", date=today, history_path=str(history_path))
+
     rows = finnhub_client.fetch_calendar(today)
     reported = [row for row in rows if finnhub_client.has_reported(row)]
     index = history.load_index(history_path)
@@ -93,17 +95,25 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
     for row in reported:
         ticker = finnhub_client.row_symbol(row)
         if not ticker:
+            log_event("monitor_row_skipped", reason="missing_symbol", row=row)
             continue
         period_end = finnhub_client.row_period_end(row)
         period_key = period_end or today
+
+        already_seen = history.has_period(index, ticker, period_key)
+        if already_seen:
+            log_event("monitor_row_skipped", ticker=ticker, period=period_key, reason="already_recorded")
+            continue
+
+        prior = history.latest_prior(index, ticker)
+        has_prior = prior is not None
+        log_event("monitor_row_processed", ticker=ticker, period=period_key, has_prior=has_prior)
 
         eps_actual = finnhub_client.row_eps_actual(row)
         eps_estimate = finnhub_client.row_eps_estimate(row)
         revenue_actual = finnhub_client.row_revenue_actual(row)
         revenue_estimate = finnhub_client.row_revenue_estimate(row)
 
-        already_seen = history.has_period(index, ticker, period_key)
-        prior = None if already_seen else history.latest_prior(index, ticker)
         result = None
         if prior is not None:
             result = scorer.score_growth(
@@ -113,6 +123,18 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
                 prior.get("revenue_actual"),
                 min_eps_growth_pct=min_eps_growth,
                 min_revenue_growth_pct=min_revenue_growth,
+            )
+            log_event(
+                "monitor_scored",
+                ticker=ticker,
+                period=period_key,
+                eps_actual=eps_actual,
+                eps_prior=prior.get("eps_actual"),
+                revenue_actual=revenue_actual,
+                revenue_prior=prior.get("revenue_actual"),
+                alert=result["alert"],
+                eps_growth_pct=result.get("eps_growth_pct"),
+                revenue_growth_pct=result.get("revenue_growth_pct"),
             )
 
         _print_report_line(
@@ -125,9 +147,6 @@ def run_once(cfg: dict, date_override: str | None = None) -> int:
             result["revenue_growth_pct"] if result else None,
             is_alert=bool(result and result["alert"]),
         )
-
-        if already_seen:
-            continue
 
         if revenue_actual is None:
             log_event("monitor_revenue_unavailable", ticker=ticker, reason="finnhub_no_revenue")
