@@ -1,4 +1,3 @@
-[]
 {"ticker": "A", "next_earnings_ts": null, "eps_actual": null, "eps_estimate": null, "revenue_actual": null, "revenue_estimate": null, "fetched_at": "2026-07-25T00:01:27.084358"}
 {"ticker": "AACBR", "next_earnings_ts": null, "eps_actual": null, "eps_estimate": null, "revenue_actual": null, "revenue_estimate": null, "fetched_at": "2026-07-25T00:01:27.084793"}
 {"ticker": "AACBU", "next_earnings_ts": null, "eps_actual": null, "eps_estimate": null, "revenue_actual": null, "revenue_estimate": null, "fetched_at": "2026-07-25T00:01:27.084942"}
@@ -4489,7 +4488,6 @@
 {"ticker": "ECBK", "report_date": "2026-07-23", "period_end": "2026-06", "eps_actual": 0.39, "eps_estimate": null, "revenue_actual": 155000, "fetched_at": "2026-07-27T00:36:32.561950-04:00"}
 {"ticker": "SBFG", "report_date": "2026-07-23", "period_end": "2026-06", "eps_actual": 0.73, "eps_estimate": 0.69, "revenue_actual": 8842000, "fetched_at": "2026-07-27T00:36:34.731835-04:00"}
 {"ticker": "RBKB", "report_date": "2026-07-23", "period_end": "2026-06", "eps_actual": 0.24, "eps_estimate": null, "revenue_actual": null, "fetched_at": "2026-07-27T00:36:35.506950-04:00"}
-<<<<<<< HEAD
 {"ticker": "CSPI", "report_date": "2026-08-14", "period_end": "2026-Q3", "eps_actual": -0.09, "eps_estimate": null, "revenue_actual": 14400000.0, "revenue_estimate": null, "fetched_at": "2026-08-17T03:02:59.170236-04:00"}
 {"ticker": "DTST", "report_date": "2026-08-14", "period_end": "2026-Q2", "eps_actual": -0.53, "eps_estimate": -0.357, "revenue_actual": 360000.0, "revenue_estimate": 408000.0, "fetched_at": "2026-08-17T03:02:59.170862-04:00"}
 {"ticker": "EDBL", "report_date": "2026-08-14", "period_end": "2026-Q2", "eps_actual": -18.79, "eps_estimate": -11.934, "revenue_actual": 3550000.0, "revenue_estimate": 3448620.0, "fetched_at": "2026-08-17T03:02:59.176712-04:00"}
@@ -4507,7 +4505,6 @@
 {"ticker": "SLE", "report_date": "2026-08-14", "period_end": "2026-Q2", "eps_actual": -2.7, "eps_estimate": -1.6867, "revenue_actual": 3010000.0, "revenue_estimate": 3434505.0, "fetched_at": "2026-08-17T03:02:59.180527-04:00"}
 {"ticker": "TMS", "report_date": "2026-08-14", "period_end": "2026-Q2", "eps_actual": -0.11, "eps_estimate": null, "revenue_actual": 148660000.0, "revenue_estimate": null, "fetched_at": "2026-08-17T03:02:59.180960-04:00"}
 {"ticker": "TOMZ", "report_date": "2026-08-14", "period_end": "2026-Q2", "eps_actual": -0.05, "eps_estimate": -0.1122, "revenue_actual": 2250000.0, "revenue_estimate": 1878840.0, "fetched_at": "2026-08-17T03:02:59.181276-04:00"}
-=======
 {"ticker": "ADP", "report_date": "2026-07-29", "period_end": "2026-Q4", "eps_actual": 2.64, "eps_estimate": 2.6205, "revenue_actual": 5473800000.0, "revenue_estimate": 5491546820.0, "fetched_at": "2026-07-29T15:08:47.226945-04:00"}
 {"ticker": "AER", "report_date": "2026-07-29", "period_end": "2026-Q2", "eps_actual": 5.14, "eps_estimate": 4.142, "revenue_actual": 2167210000.0, "revenue_estimate": 2117778736.0, "fetched_at": "2026-07-29T15:08:47.228910-04:00"}
 {"ticker": "AMRN", "report_date": "2026-07-29", "period_end": "2026-Q2", "eps_actual": 0.04, "eps_estimate": -0.0102, "revenue_actual": 42210000.0, "revenue_estimate": 45441000.0, "fetched_at": "2026-07-29T15:08:47.229199-04:00"}
@@ -4601,4 +4598,3 @@
 {"ticker": "WING", "report_date": "2026-07-29", "period_end": "2026-Q2", "eps_actual": 1.18, "eps_estimate": 1.053, "revenue_actual": 185560000.0, "revenue_estimate": 194434307.0, "fetched_at": "2026-07-29T15:08:47.238748-04:00"}
 {"ticker": "WNC", "report_date": "2026-07-29", "period_end": "2026-Q2", "eps_actual": -0.53, "eps_estimate": -0.5656, "revenue_actual": 417240000.0, "revenue_estimate": 419857000.0, "fetched_at": "2026-07-29T15:08:47.238853-04:00"}
 {"ticker": "WSO", "report_date": "2026-07-29", "period_end": "2026-Q2", "eps_actual": 4.0, "eps_estimate": 4.4846, "revenue_actual": 2104860000.0, "revenue_estimate": 2168961415.0, "fetched_at": "2026-07-29T15:08:47.238950-04:00"}
->>>>>>> e90d004 (chore: include monitor debug logging + history updates (session work))
